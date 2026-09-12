@@ -108,7 +108,7 @@ export default function PortfolioBuilder({ investAmount, currency, onSimulate })
             Where Exactly Should You Put Your Money?
           </h2>
           <p className="text-slate-600 text-sm mt-1">
-            Choose your investing personality or take the 1-minute quiz below:
+            This generates your personalized investment plan. Choose your risk personality below to calculate your exact monthly asset split:
           </p>
         </div>
 

@@ -9,6 +9,7 @@ import SafetyNetGuide from './components/SafetyNetGuide';
 import FinBuddyChat from './components/FinBuddyChat';
 import ScamRadar from './components/ScamRadar';
 import FirstStepGuide from './components/FirstStepGuide';
+import ExitGuide from './components/ExitGuide';
 import { 
   Sparkles, 
   ArrowUpRight, 
@@ -24,6 +25,52 @@ export default function App() {
   const [salary, setSalary] = useState(35000);
   const [currency, setCurrency] = useState('INR');
   const [investAmount, setInvestAmount] = useState(7000); // 20% of 35000
+
+  // Keyboard navigation shortcuts: Left & Right arrow keys
+  React.useEffect(() => {
+    const tabsOrder = [
+      'salary-plan',
+      'exit-guide',
+      'jargon-buster',
+      'simulator',
+      'investment-types',
+      'safety-net',
+      'scam-radar',
+      'first-steps',
+      'fin-buddy'
+    ];
+
+    const handleKeyDown = (e) => {
+      // Do not trigger tab switch if user is typing in an input field or textarea
+      if (
+        ['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement?.tagName) ||
+        document.activeElement?.isContentEditable
+      ) {
+        return;
+      }
+
+      if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        setActiveTab((prevTab) => {
+          const currIdx = tabsOrder.indexOf(prevTab);
+          const validIdx = currIdx === -1 ? tabsOrder.length - 1 : currIdx;
+          const nextIdx = (validIdx + 1) % tabsOrder.length;
+          return tabsOrder[nextIdx];
+        });
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        setActiveTab((prevTab) => {
+          const currIdx = tabsOrder.indexOf(prevTab);
+          const validIdx = currIdx === -1 ? 0 : currIdx;
+          const prevIdx = (validIdx - 1 + tabsOrder.length) % tabsOrder.length;
+          return tabsOrder[prevIdx];
+        });
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col selection:bg-emerald-500 selection:text-white">
@@ -92,6 +139,14 @@ export default function App() {
         {activeTab === 'jargon-buster' && (
           <JargonBuster 
             onSelectConcept={() => {}}
+          />
+        )}
+
+        {activeTab === 'exit-guide' && (
+          <ExitGuide 
+            salary={salary}
+            currency={currency}
+            onAskFinBuddy={() => setActiveTab('fin-buddy')}
           />
         )}
 

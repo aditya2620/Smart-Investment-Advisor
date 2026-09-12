@@ -331,8 +331,9 @@ export default function SalarySplitter({
             <button
               onClick={onProceedToPortfolio}
               className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-sm flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/25 transition-all hover:scale-102 cursor-pointer"
+              title="Generates your customized asset allocation plan and breakdown"
             >
-              <span>Build My Portfolio</span>
+              <span>Generate My Portfolio Blueprint</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>

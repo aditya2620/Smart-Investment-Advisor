@@ -8,17 +8,29 @@ import {
   ShieldAlert, 
   Bot, 
   CheckCircle2,
-  AlertTriangle
+  AlertTriangle,
+  Bell,
+  Compass
 } from 'lucide-react';
 
 export default function Navbar({ activeTab, setActiveTab, currency, setCurrency }) {
+  // Auto-scroll active tab into view when switched via keyboard or click
+  React.useEffect(() => {
+    const el = document.getElementById(`tab-${activeTab}`);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+  }, [activeTab]);
+
   const navItems = [
     { id: 'salary-plan', label: 'My Salary & Plan', icon: PieChart, badge: 'Start Here' },
+    { id: 'exit-guide', label: 'When to Invest & Withdraw', icon: Bell, badge: 'Crash Alerts' },
     { id: 'jargon-buster', label: 'Kid-Simple Concepts', icon: BookOpen },
     { id: 'simulator', label: 'Wealth Simulator', icon: TrendingUp },
     { id: 'investment-types', label: 'Investment Types', icon: Layers },
     { id: 'safety-net', label: 'Safety Net First', icon: ShieldAlert },
     { id: 'scam-radar', label: 'Scam Radar', icon: AlertTriangle },
+    { id: 'first-steps', label: 'Action Roadmap', icon: Compass, badge: '15 Mins' },
     { id: 'fin-buddy', label: 'FinBuddy AI', icon: Bot, badge: 'Mentor' },
   ];
 
@@ -47,6 +59,13 @@ export default function Navbar({ activeTab, setActiveTab, currency, setCurrency 
 
           {/* Currency Toggle & Quick Action */}
           <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
+            {/* Keyboard Shortcut Hint Pill */}
+            <div className="hidden lg:flex items-center gap-1 text-[11px] text-slate-400 bg-slate-100/90 px-2 py-1 rounded-lg border border-slate-200" title="Use Arrow keys ← / → to switch tabs">
+              <span>Nav:</span>
+              <kbd className="px-1 py-0.2 bg-white text-slate-700 font-bold rounded border border-slate-300 font-mono text-[10px]">←</kbd>
+              <kbd className="px-1 py-0.2 bg-white text-slate-700 font-bold rounded border border-slate-300 font-mono text-[10px">→</kbd>
+            </div>
+
             {/* Currency Switcher */}
             <div className="flex items-center bg-slate-100 p-0.5 sm:p-1 rounded-lg border border-slate-200">
               <button
@@ -93,6 +112,7 @@ export default function Navbar({ activeTab, setActiveTab, currency, setCurrency 
             return (
               <button
                 key={item.id}
+                id={`tab-${item.id}`}
                 onClick={() => setActiveTab(item.id)}
                 className={`flex items-center gap-2 px-3 py-1.5 text-xs sm:text-sm font-medium rounded-lg whitespace-nowrap transition-all ${
                   isActive
