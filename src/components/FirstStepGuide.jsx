@@ -52,6 +52,10 @@ export default function FirstStepGuide() {
 
   const faqs = [
     {
+      q: 'Should I do an Index Fund SIP or buy individual company Stocks?',
+      a: 'For first-time earners, Index Fund SIPs are 10x safer and hassle-free because 1 single fund automatically splits your money across India\'s 50 top giant companies. Buying individual stocks directly (like Reliance or Tata Motors) requires studying financial balance sheets. Put 80-90% into automated Index Fund SIPs, and use only a small 10% play bucket if you want to buy individual stocks.'
+    },
+    {
       q: 'What happens if I don’t have enough balance on my SIP date?',
       a: 'The mutual fund does NOT fine you! Your SIP for that single month is simply skipped. However, make sure your bank does not charge an auto-debit bounce fee (usually ₹100-₹250). You can pause or stop your SIP anytime with 1 click in the app.'
     },
