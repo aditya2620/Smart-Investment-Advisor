@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
-import Breadcrumbs from './components/Breadcrumbs';
 import SalarySplitter from './components/SalarySplitter';
 import PortfolioBuilder from './components/PortfolioBuilder';
 import CompoundSimulator from './components/CompoundSimulator';
@@ -65,7 +64,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col selection:bg-emerald-500 selection:text-white">
       
-      {/* Top Navbar */}
+      {/* Top Unified Navbar & Breadcrumb Navigation */}
       <Navbar 
         activeTab={activeTab} 
         setActiveTab={setActiveTab} 
@@ -75,12 +74,6 @@ export default function App() {
 
       {/* Main Content Area */}
       <main className="flex-1 w-full px-4 sm:px-6 lg:px-8 py-5 sm:py-6 space-y-5">
-        
-        {/* Interactive Breadcrumb Navigation Bar */}
-        <Breadcrumbs 
-          activeTab={activeTab} 
-          setActiveTab={setActiveTab} 
-        />
 
         {/* Quick Stats Mini-Bar for Starter Awareness */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-white p-3 sm:p-4 rounded-2xl border border-slate-200 shadow-2xs">
