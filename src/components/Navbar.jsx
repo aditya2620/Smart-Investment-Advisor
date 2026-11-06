@@ -79,11 +79,11 @@ export default function Navbar({ activeTab, setActiveTab, currency, setCurrency 
   const CategoryIcon = ICON_MAP[currentCategory.icon] || Layers;
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs">
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs pt-2 sm:pt-3">
       <div className="w-full px-3 sm:px-6 lg:px-8">
         
         {/* Row 1: Brand & Global Controls */}
-        <div className="flex items-center justify-between h-13 sm:h-15 gap-2">
+        <div className="flex items-center justify-between py-1.5 sm:py-2 gap-2">
           
           {/* Logo & Branding */}
           <div 
