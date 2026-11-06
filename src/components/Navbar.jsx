@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { 
   Sparkles, 
   PieChart, 
@@ -7,35 +7,81 @@ import {
   Layers, 
   ShieldAlert, 
   Bot, 
-  CheckCircle2,
+  AlertTriangle, 
+  Bell, 
+  Compass,
+  ChevronLeft,
+  ChevronRight,
+  Grid,
+  Check
+} from 'lucide-react';
+import { NAV_ITEMS, NAVIGATION_CATEGORIES, getItemsByCategory } from '../data/navigation';
+
+const ICON_MAP = {
+  PieChart,
+  BookOpen,
+  TrendingUp,
+  Layers,
+  ShieldAlert,
+  Bot,
   AlertTriangle,
   Bell,
   Compass
-} from 'lucide-react';
+};
 
 export default function Navbar({ activeTab, setActiveTab, currency, setCurrency }) {
+  const scrollContainerRef = useRef(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef(null);
+
   // Auto-scroll active tab into view when switched via keyboard or click
-  React.useEffect(() => {
+  useEffect(() => {
     const el = document.getElementById(`tab-${activeTab}`);
     if (el) {
       el.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
     }
+    // Update scroll arrows state
+    setTimeout(updateScrollState, 300);
   }, [activeTab]);
 
-  const navItems = [
-    { id: 'salary-plan', label: 'My Salary & Plan', icon: PieChart, badge: 'Start Here' },
-    { id: 'exit-guide', label: 'When to Invest & Withdraw', icon: Bell, badge: 'Crash Alerts' },
-    { id: 'jargon-buster', label: 'Kid-Simple Concepts', icon: BookOpen },
-    { id: 'simulator', label: 'Wealth Simulator', icon: TrendingUp },
-    { id: 'investment-types', label: 'Investment Types', icon: Layers },
-    { id: 'safety-net', label: 'Safety Net First', icon: ShieldAlert },
-    { id: 'scam-radar', label: 'Scam Radar', icon: AlertTriangle },
-    { id: 'first-steps', label: 'Action Roadmap', icon: Compass, badge: '15 Mins' },
-    { id: 'fin-buddy', label: 'FinBuddy AI', icon: Bot, badge: 'Mentor' },
-  ];
+  const updateScrollState = () => {
+    if (scrollContainerRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
+      setCanScrollLeft(scrollLeft > 10);
+      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
+    }
+  };
+
+  useEffect(() => {
+    updateScrollState();
+    const handleResize = () => updateScrollState();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Close dropdown on outside click
+  useEffect(() => {
+    function handleClickOutside(e) {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
+        setMenuOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const handleScroll = (direction) => {
+    if (scrollContainerRef.current) {
+      const offset = direction === 'left' ? -260 : 260;
+      scrollContainerRef.current.scrollBy({ left: offset, behavior: 'smooth' });
+      setTimeout(updateScrollState, 250);
+    }
+  };
 
   return (
-    <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-xs">
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs">
       <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14 sm:h-16 gap-2">
           
@@ -93,7 +139,7 @@ export default function Navbar({ activeTab, setActiveTab, currency, setCurrency 
             {/* FinBuddy Quick Action Button */}
             <button
               onClick={() => setActiveTab('fin-buddy')}
-              className="flex items-center gap-1 px-2.5 py-1 sm:px-3 sm:py-1.5 text-xs font-bold rounded-lg bg-emerald-50 text-emerald-700 border border-emerald-200 hover:bg-emerald-100 active:scale-95 transition-all shrink-0"
+              className="flex items-center gap-1 px-2.5 py-1 sm:px-3 sm:py-1.5 text-xs font-bold rounded-lg bg-emerald-50 text-emerald-700 border border-emerald-200 hover:bg-emerald-100 active:scale-95 transition-all shrink-0 cursor-pointer"
               title="Ask FinBuddy AI Mentor"
             >
               <Bot className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
@@ -104,38 +150,122 @@ export default function Navbar({ activeTab, setActiveTab, currency, setCurrency 
 
         </div>
 
-        {/* Scrollable Navigation Bar for All Devices */}
-        <div className="flex space-x-1 overflow-x-auto py-2 scrollbar-none border-t border-slate-100">
-          {navItems.map((item) => {
-            const Icon = item.icon;
-            const isActive = activeTab === item.id;
-            return (
-              <button
-                key={item.id}
-                id={`tab-${item.id}`}
-                onClick={() => setActiveTab(item.id)}
-                className={`flex items-center gap-2 px-3 py-1.5 text-xs sm:text-sm font-medium rounded-lg whitespace-nowrap transition-all ${
-                  isActive
-                    ? 'bg-emerald-600 text-white shadow-sm shadow-emerald-600/20'
-                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
-                }`}
-              >
-                <Icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-slate-500'}`} />
-                <span>{item.label}</span>
-                {item.badge && (
-                  <span
-                    className={`text-[10px] px-1.5 py-0.5 rounded-full uppercase tracking-wider font-bold ${
-                      isActive
-                        ? 'bg-white/20 text-white'
-                        : 'bg-emerald-100 text-emerald-700'
-                    }`}
-                  >
-                    {item.badge}
-                  </span>
-                )}
-              </button>
-            );
-          })}
+        {/* Scrollable Navigation Bar with Desktop Scroll Chevrons & Quick Dropdown */}
+        <div className="relative border-t border-slate-100 flex items-center py-1.5">
+          
+          {/* Left Scroll Button (Desktop/Tablet) */}
+          {canScrollLeft && (
+            <button
+              onClick={() => handleScroll('left')}
+              className="absolute left-0 z-10 p-1 rounded-full bg-white/95 shadow-md border border-slate-200 text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition-all cursor-pointer hidden md:flex items-center justify-center -ml-2"
+              title="Scroll tabs left"
+              aria-label="Scroll tabs left"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+          )}
+
+          {/* Tabs Container */}
+          <div 
+            ref={scrollContainerRef}
+            onScroll={updateScrollState}
+            className="flex space-x-1 overflow-x-auto py-1 scrollbar-none scroll-smooth w-full pr-10 md:pr-14"
+          >
+            {NAV_ITEMS.map((item) => {
+              const Icon = ICON_MAP[item.iconName] || Compass;
+              const isActive = activeTab === item.id;
+              return (
+                <button
+                  key={item.id}
+                  id={`tab-${item.id}`}
+                  onClick={() => setActiveTab(item.id)}
+                  className={`flex items-center gap-2 px-3 py-1.5 text-xs sm:text-sm font-medium rounded-lg whitespace-nowrap transition-all cursor-pointer ${
+                    isActive
+                      ? 'bg-emerald-600 text-white shadow-sm shadow-emerald-600/20 font-bold'
+                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                  }`}
+                >
+                  <Icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-slate-500'}`} />
+                  <span>{item.label}</span>
+                  {item.badge && (
+                    <span
+                      className={`text-[10px] px-1.5 py-0.5 rounded-full uppercase tracking-wider font-bold ${
+                        isActive
+                          ? 'bg-white/20 text-white'
+                          : 'bg-emerald-100 text-emerald-700'
+                      }`}
+                    >
+                      {item.badge}
+                    </span>
+                  )}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Right Scroll Button (Desktop/Tablet) */}
+          {canScrollRight && (
+            <button
+              onClick={() => handleScroll('right')}
+              className="absolute right-10 md:right-12 z-10 p-1 rounded-full bg-white/95 shadow-md border border-slate-200 text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition-all cursor-pointer hidden md:flex items-center justify-center"
+              title="Scroll tabs right"
+              aria-label="Scroll tabs right"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          )}
+
+          {/* Quick "All Sections" Dropdown on Navbar */}
+          <div className="absolute right-0 z-20" ref={menuRef}>
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className={`p-1.5 rounded-lg border text-xs font-bold flex items-center justify-center transition-all cursor-pointer ${
+                menuOpen
+                  ? 'bg-emerald-600 text-white border-emerald-600 shadow-xs'
+                  : 'bg-slate-100 hover:bg-slate-200 text-slate-700 border-slate-200'
+              }`}
+              title="View all 9 modules without scrolling"
+              aria-label="View all modules"
+            >
+              <Grid className="w-4 h-4" />
+            </button>
+
+            {menuOpen && (
+              <div className="absolute right-0 mt-2 w-72 sm:w-80 bg-white rounded-2xl shadow-xl border border-slate-200 p-3 z-50 animate-in fade-in slide-in-from-top-1 duration-150">
+                <div className="px-1 pb-2 mb-2 border-b border-slate-100 flex items-center justify-between">
+                  <span className="text-xs font-black text-slate-900">All 9 Modules</span>
+                  <span className="text-[10px] text-slate-400 font-semibold">1-Click Jump</span>
+                </div>
+                <div className="space-y-1 max-h-[60vh] overflow-y-auto">
+                  {NAV_ITEMS.map((item) => {
+                    const Icon = ICON_MAP[item.iconName] || Compass;
+                    const isSelected = activeTab === item.id;
+                    return (
+                      <button
+                        key={item.id}
+                        onClick={() => {
+                          setActiveTab(item.id);
+                          setMenuOpen(false);
+                        }}
+                        className={`w-full flex items-center justify-between gap-2 p-2 rounded-xl text-left text-xs transition-all cursor-pointer ${
+                          isSelected
+                            ? 'bg-emerald-50 text-emerald-900 font-bold border border-emerald-200'
+                            : 'hover:bg-slate-50 text-slate-700 font-medium'
+                        }`}
+                      >
+                        <div className="flex items-center gap-2 truncate">
+                          <Icon className={`w-3.5 h-3.5 shrink-0 ${isSelected ? 'text-emerald-600' : 'text-slate-400'}`} />
+                          <span className="truncate">{item.label}</span>
+                        </div>
+                        {isSelected && <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
+
         </div>
 
       </div>

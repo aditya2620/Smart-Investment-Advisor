@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
+import Breadcrumbs from './components/Breadcrumbs';
 import SalarySplitter from './components/SalarySplitter';
 import PortfolioBuilder from './components/PortfolioBuilder';
 import CompoundSimulator from './components/CompoundSimulator';
@@ -19,6 +20,7 @@ import {
   Compass
 } from 'lucide-react';
 import { formatCurrency } from './utils/financialMath';
+import { TABS_ORDER } from './data/navigation';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('salary-plan');
@@ -27,19 +29,7 @@ export default function App() {
   const [investAmount, setInvestAmount] = useState(7000); // 20% of 35000
 
   // Keyboard navigation shortcuts: Left & Right arrow keys
-  React.useEffect(() => {
-    const tabsOrder = [
-      'salary-plan',
-      'exit-guide',
-      'jargon-buster',
-      'simulator',
-      'investment-types',
-      'safety-net',
-      'scam-radar',
-      'first-steps',
-      'fin-buddy'
-    ];
-
+  useEffect(() => {
     const handleKeyDown = (e) => {
       // Do not trigger tab switch if user is typing in an input field or textarea
       if (
@@ -52,18 +42,18 @@ export default function App() {
       if (e.key === 'ArrowRight') {
         e.preventDefault();
         setActiveTab((prevTab) => {
-          const currIdx = tabsOrder.indexOf(prevTab);
-          const validIdx = currIdx === -1 ? tabsOrder.length - 1 : currIdx;
-          const nextIdx = (validIdx + 1) % tabsOrder.length;
-          return tabsOrder[nextIdx];
+          const currIdx = TABS_ORDER.indexOf(prevTab);
+          const validIdx = currIdx === -1 ? TABS_ORDER.length - 1 : currIdx;
+          const nextIdx = (validIdx + 1) % TABS_ORDER.length;
+          return TABS_ORDER[nextIdx];
         });
       } else if (e.key === 'ArrowLeft') {
         e.preventDefault();
         setActiveTab((prevTab) => {
-          const currIdx = tabsOrder.indexOf(prevTab);
+          const currIdx = TABS_ORDER.indexOf(prevTab);
           const validIdx = currIdx === -1 ? 0 : currIdx;
-          const prevIdx = (validIdx - 1 + tabsOrder.length) % tabsOrder.length;
-          return tabsOrder[prevIdx];
+          const prevIdx = (validIdx - 1 + TABS_ORDER.length) % TABS_ORDER.length;
+          return TABS_ORDER[prevIdx];
         });
       }
     };
@@ -84,8 +74,14 @@ export default function App() {
       />
 
       {/* Main Content Area */}
-      <main className="flex-1 w-full px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-6">
+      <main className="flex-1 w-full px-4 sm:px-6 lg:px-8 py-5 sm:py-6 space-y-5">
         
+        {/* Interactive Breadcrumb Navigation Bar */}
+        <Breadcrumbs 
+          activeTab={activeTab} 
+          setActiveTab={setActiveTab} 
+        />
+
         {/* Quick Stats Mini-Bar for Starter Awareness */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-white p-3 sm:p-4 rounded-2xl border border-slate-200 shadow-2xs">
           <div className="p-2 sm:p-3 rounded-xl bg-slate-50 border border-slate-100">
