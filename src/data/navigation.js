@@ -6,7 +6,7 @@ export const NAVIGATION_CATEGORIES = {
     icon: 'Compass',
     badge: 'Core Tools',
     color: 'emerald',
-    description: 'Budgeting, wealth simulation & step-by-step account setup'
+    description: 'Budget allocation, compounding projections, and setup roadmap'
   },
   strategy: {
     id: 'strategy',
@@ -15,109 +15,109 @@ export const NAVIGATION_CATEGORIES = {
     icon: 'Layers',
     badge: 'Education',
     color: 'blue',
-    description: 'Asset types, timing rules, crash alerts & jargon translations'
+    description: 'Asset classes, drawdown responses, and core terminology'
   },
   safety: {
     id: 'safety',
     label: 'Protection & Guidance',
     shortLabel: 'Protection',
     icon: 'ShieldAlert',
-    badge: 'Safety First',
+    badge: 'Risk Controls',
     color: 'amber',
-    description: 'Emergency funds, scam protection & AI mentorship'
+    description: 'Emergency provisions, scam analysis, and advisory assistant'
   }
 };
 
 export const NAV_ITEMS = [
   { 
     id: 'salary-plan', 
-    label: 'My Salary & Plan', 
+    label: 'Salary Allocation & Portfolio', 
     shortLabel: 'Salary Splitter',
     iconName: 'PieChart', 
     badge: 'Start Here',
     badgeColor: 'emerald',
     categoryId: 'planning',
-    description: '50/30/20 budget splitter & custom monthly asset allocation plan'
+    description: '50/30/20 monthly budgeting and target asset allocation models'
   },
   { 
     id: 'exit-guide', 
-    label: 'When to Invest & Withdraw', 
-    shortLabel: 'Invest & Exit',
+    label: 'Market Cycle & Exit Protocol', 
+    shortLabel: 'Exit Strategy',
     iconName: 'Bell', 
-    badge: 'Crash Alerts',
-    badgeColor: 'rose',
+    badge: 'Market Timing',
+    badgeColor: 'slate',
     categoryId: 'strategy',
-    description: 'Market crash reactions, exit rules & "Should I Withdraw?" helper'
+    description: 'Protocol for managing market downturns, systematic rebalancing, and liquidations'
   },
   { 
     id: 'jargon-buster', 
-    label: 'Kid-Simple Concepts', 
-    shortLabel: 'Jargon Buster',
+    label: 'Core Investment Concepts', 
+    shortLabel: 'Concepts',
     iconName: 'BookOpen',
-    badge: 'Simple Terms',
+    badge: 'Definitions',
     badgeColor: 'slate',
     categoryId: 'strategy',
-    description: 'Financial dictionary explained in plain language like you are 10'
+    description: 'Essential market mechanisms and financial terminology in clear language'
   },
   { 
     id: 'simulator', 
-    label: 'Wealth Simulator', 
-    shortLabel: 'Simulator',
+    label: 'Compound Growth Simulator', 
+    shortLabel: 'Compound Sim',
     iconName: 'TrendingUp',
-    badge: 'Compound Sim',
+    badge: 'Modeler',
     badgeColor: 'emerald',
     categoryId: 'planning',
-    description: 'See how ₹500 to ₹10,000 monthly compounds over 5, 10, and 20 years'
+    description: 'Projected corpus expansion across monthly SIP contributions and time horizons'
   },
   { 
     id: 'investment-types', 
-    label: 'Investment Types', 
-    shortLabel: 'Asset Types',
+    label: 'Asset Classes & Instruments', 
+    shortLabel: 'Asset Classes',
     iconName: 'Layers',
-    badge: 'Asset Class',
+    badge: 'Instruments',
     badgeColor: 'blue',
     categoryId: 'strategy',
-    description: 'Comparison of Index Funds, FD, Gold, Flexi Cap & Trading Traps'
+    description: 'Comparative overview of index funds, sovereign bonds, gold, and derivative risks'
   },
   { 
     id: 'safety-net', 
-    label: 'Safety Net First', 
-    shortLabel: 'Emergency Shield',
+    label: 'Safety Net & Liquidity', 
+    shortLabel: 'Safety Net',
     iconName: 'ShieldAlert',
-    badge: 'Safety Shield',
+    badge: 'Prerequisites',
     badgeColor: 'amber',
     categoryId: 'safety',
-    description: 'Emergency fund calculator, health insurance cover & debt payoff'
+    description: 'Emergency fund sizing, healthcare coverage, and revolving debt elimination'
   },
   { 
     id: 'scam-radar', 
-    label: 'Scam Radar', 
-    shortLabel: 'Scam Radar',
+    label: 'Fraud & Scheme Detection', 
+    shortLabel: 'Fraud Radar',
     iconName: 'AlertTriangle',
-    badge: 'Red Flags',
+    badge: 'Risk Screen',
     badgeColor: 'rose',
     categoryId: 'safety',
-    description: 'Detect dangerous WhatsApp tips, Telegram fraud & get-rich-quick traps'
+    description: 'Screening criteria for fraudulent advisory channels, ponzi structures, and tips'
   },
   { 
     id: 'first-steps', 
-    label: 'Action Roadmap', 
-    shortLabel: '15-Min Setup',
+    label: 'Broker & Account Setup', 
+    shortLabel: 'Action Guide',
     iconName: 'Compass', 
-    badge: '15 Mins',
+    badge: 'Execution',
     badgeColor: 'emerald',
     categoryId: 'planning',
-    description: 'Broker selection (Groww/Zerodha), paperless KYC & SIP setup checklist'
+    description: 'Regulated broker selection, depository KYC verification, and SIP mandates'
   },
   { 
     id: 'fin-buddy', 
-    label: 'FinBuddy AI', 
-    shortLabel: 'AI Mentor',
+    label: 'FinBuddy Advisory Assistant', 
+    shortLabel: 'Assistant',
     iconName: 'Bot', 
-    badge: 'Mentor',
+    badge: 'Advisory',
     badgeColor: 'emerald',
     categoryId: 'safety',
-    description: 'Interactive AI companion answering your exact personal money questions'
+    description: 'Interactive financial knowledge engine for early-career questions'
   },
 ];
 

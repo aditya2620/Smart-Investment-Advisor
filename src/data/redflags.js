@@ -1,50 +1,50 @@
 export const SCAM_SCENARIOS = [
   {
     id: 'telegram-vip',
-    scenario: 'A Telegram channel promises "Sure Shot 500% intraday stock calls with 99% accuracy" for a VIP membership fee of ₹2,999.',
+    scenario: 'A private messaging channel promises "Guaranteed 500% intraday stock calls with 99% win accuracy" for a VIP subscription fee of ₹2,999.',
     isScam: true,
-    dangerLevel: 'Extreme 🔴',
-    verdict: '🚨 PUMP & DUMP SCAM',
-    explanation: 'If they actually had a 99% accurate money-making formula, they would be richer than Warren Buffett and wouldn\'t need your ₹2,999! These operators buy penny stocks in secret, tell thousands of subscribers to buy them (pumping the price), and then sell their own shares at the peak, leaving you with useless losses.'
+    dangerLevel: 'Critical Risk',
+    verdict: 'Pump & Dump Manipulation',
+    explanation: 'Unregistered advisory groups typically accumulate micro-cap or illiquid penny shares, encourage subscriber buying to artificially inflate volume and price, and exit their proprietary holdings at the peak, leaving retail participants with illiquid losses.'
   },
   {
     id: 'guaranteed-monthly',
-    scenario: 'A friendly acquaintance or app offers a "Guaranteed 25% monthly return" on your capital with zero market risk.',
+    scenario: 'An acquaintance or unregistered platform promises an assured "25% monthly return" on deposited capital with zero market risk.',
     isScam: true,
-    dangerLevel: 'Extreme 🔴',
-    verdict: '🚨 CLASSIC PONZI SCHEME',
-    explanation: 'A 25% monthly return turns ₹10,000 into ₹1.45 Crore in just 2 years. Mathematically, this is impossible. In Ponzi schemes, early investors are paid with new investors\' deposits until the founder vanishes with everyone\'s life savings.'
+    dangerLevel: 'Critical Risk',
+    verdict: 'Ponzi Structure Scheme',
+    explanation: 'A 25% monthly compounded return turns ₹10,000 into ~₹1.45 Crore within 24 months—a mathematical impossibility in regulated markets. Such schemes service initial redemption claims using capital from newer entrants until inflows taper and operators abscond.'
   },
   {
     id: 'index-sip-longterm',
-    scenario: 'Setting up an automatic ₹2,000 monthly SIP into a low-cost Nifty 50 Index Fund for the next 10 years through a registered broker.',
+    scenario: 'Setting up an automatic ₹2,000 monthly SIP into a low-cost broad market index fund (e.g. Nifty 50) for a 10-year horizon through a SEBI-registered broker.',
     isScam: false,
-    dangerLevel: 'Safe & Sound 🟢',
-    verdict: '🏆 LEGITIMATE WEALTH BUILDER',
-    explanation: 'This is the gold standard of long-term investing backed by India\'s top 50 profitable corporations. There are no middlemen promising magic; your returns reflect real corporate profits, regulated by SEBI.'
+    dangerLevel: 'Regulated / Low Risk',
+    verdict: 'Regulated Long-Term Investment',
+    explanation: 'This represents standard disciplined asset allocation. Capital is deployed into the top regulated public corporations with low tracking error and institutional custody under SEBI regulatory guidelines.'
   },
   {
     id: 'borrow-crypto',
-    scenario: 'A college friend tells you about a "secret new meme cryptocurrency" and advises taking a personal loan or credit card cash advance to buy it.',
+    scenario: 'Using unsecured personal credit or high-interest credit card cash advances (at 18%-36% APR) to acquire speculative micro-cap crypto tokens.',
     isScam: true,
-    dangerLevel: 'Catastrophic 🔴',
-    verdict: '🚨 FINANCIAL SUICIDE',
-    explanation: 'Rule #1 of personal finance: NEVER borrow money at 14%-40% interest to buy speculative tokens that can drop to zero overnight. You will still owe the bank their money plus brutal interest even if your coin becomes worthless.'
+    dangerLevel: 'High Risk / Unhedged Leverage',
+    verdict: 'Severe Capital Insolvency Risk',
+    explanation: 'Deploying high-cost unsecured debt into volatile, non-cash-flow-producing assets exposes the borrower to asymmetric downside. Debt obligations remain mandatory regardless of the liquidation value of the underlying assets.'
   },
   {
     id: 'ppf-government',
-    scenario: 'Opening a Public Provident Fund (PPF) account at your bank to deposit ₹50,000 yearly with a 15-year government lock-in and tax exemption.',
+    scenario: 'Depositing capital annually into a Public Provident Fund (PPF) account at a scheduled commercial bank with a 15-year tenure and statutory tax deductions.',
     isScam: false,
-    dangerLevel: 'Ultra Safe 🟢',
-    verdict: '🛡️ 100% SOVEREIGN GUARANTEE',
-    explanation: 'PPF is directly guaranteed by the Government of India. The returns are exempt from tax at deposit, interest accrual, and withdrawal (EEE status). Ideal for long-term safe wealth.'
+    dangerLevel: 'Sovereign Guarantee',
+    verdict: 'Government-Backed Savings Instrument',
+    explanation: 'PPF carries direct sovereign backing from the Government of India. Principal and accrued interest are protected by statutory legislation with Exempt-Exempt-Exempt (EEE) tax status.'
   },
   {
     id: 'whatsapp-sebi-fake',
-    scenario: 'You receive a WhatsApp message claiming to be a "SEBI Registered Institutional Fund" offering an exclusive pre-IPO link to invest via UPI.',
+    scenario: 'An unsolicited WhatsApp contact claims to represent an "Institutional Foreign Portfolio Investor" offering pre-IPO access via direct UPI transfer.',
     isScam: true,
-    dangerLevel: 'Extreme 🔴',
-    verdict: '🚨 CYBER FRAUD & IDENTITY THEFT',
-    explanation: 'SEBI never runs WhatsApp trading groups or asks for direct UPI payments to individual accounts. Genuine IPOs and stock purchases only happen through ASBA (Application Supported by Blocked Amount) through your official verified bank or SEBI-registered Demat account.'
+    dangerLevel: 'Critical Risk',
+    verdict: 'Impersonation & Phishing Fraud',
+    explanation: 'Legitimate primary market equity allotments (IPOs) operate strictly via ASBA (Application Supported by Blocked Amount) through registered banking interfaces and SEBI-registered depositories. Unregulated direct UPI requests are fraudulent.'
   }
 ];

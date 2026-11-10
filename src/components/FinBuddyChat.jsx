@@ -2,17 +2,16 @@ import React, { useState, useRef, useEffect } from 'react';
 import { 
   Bot, 
   Send, 
-  Sparkles, 
   User, 
   Trash2, 
-  HelpCircle, 
   ThumbsUp, 
   ThumbsDown,
   Copy,
   Check,
   TrendingUp,
   ArrowRight,
-  ShieldCheck
+  BookOpen,
+  Layers
 } from 'lucide-react';
 import { FIN_BUDDY_KNOWLEDGE, QUICK_PROMPTS } from '../data/faqKnowledge';
 
@@ -21,11 +20,9 @@ export default function FinBuddyChat({ salary, currency }) {
     {
       id: 'welcome',
       sender: 'bot',
-      text: `Hey there! 👋 I'm **FinBuddy**, your personal zero-jargon investment mentor.
+      text: `Welcome to FinBuddy. I provide clear, evidence-based financial answers tailored for first-time earners.
 
-I'm built specifically for first-time earners who want clear, friendly answers without confusing financial textbook words.
-
-Ask me anything about starting small, SIPs, Groww vs Zerodha, taxes, or market safety!`,
+Ask any question regarding starting small, systematic investment plans (SIPs), broker selection (Groww vs Zerodha), tax treatment, or portfolio safety.`,
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       followUps: ['Can I start with just ₹500?', 'How do I start investing my salary?', 'Which app is best: Groww vs Zerodha?']
     }
@@ -49,7 +46,7 @@ Ask me anything about starting small, SIPs, Groww vs Zerodha, taxes, or market s
   const findBestAnswer = (query) => {
     const qLower = query.toLowerCase().trim();
 
-    // 1. Dynamic Amount Extraction (e.g. user mentions 200, 500, 1000, 2000)
+    // 1. Dynamic Amount Extraction
     const numberMatches = qLower.match(/\b(\d{3,6})\b/g);
     let amountExtracted = null;
     if (numberMatches) {
@@ -69,7 +66,6 @@ Ask me anything about starting small, SIPs, Groww vs Zerodha, taxes, or market s
         if (qLower === kw) {
           score += 35; // Exact full phrase match
         } else if (qLower.includes(kw)) {
-          // Higher weight for specific phrases or numbers vs generic single words
           if (/\d+/.test(kw) || kw.includes('below') || kw.includes('small') || kw.includes('less')) {
             score += 25;
           } else if (kw.length > 4) {
@@ -98,50 +94,52 @@ Ask me anything about starting small, SIPs, Groww vs Zerodha, taxes, or market s
         const targetInvest = Math.round(salary * 0.2);
         const currSym = currency === 'INR' ? '₹' : '$';
         if (viewMode === 'simple') {
-          explanationText = `**The 20% Future Wealth Rule!** 🎯\n\nAim to invest **20% of your monthly in-hand salary** for your future self.\n\n- Monthly Salary: **${currSym}${salary.toLocaleString()}**\n- Target Monthly Investment: **${currSym}${targetInvest.toLocaleString()}**\n\nStart automatically on payday into a simple **Nifty 50 Index Fund**!`;
+          explanationText = `A sound institutional baseline for early earners is the **50/30/20 framework**:\n\n• **50% Needs:** Rent, groceries, commuting, bills.\n• **30% Discretionary:** Lifestyle, recreation, travel.\n• **20% Long-Term Investing:** For your salary, this equals roughly **${currSym}${targetInvest.toLocaleString()}/month**.\n\nEven if 20% feels tight right now, starting with 5% or 10% establishes the habit.`;
         } else {
-          explanationText = `**Recommended Allocation Strategy:**\n\n1. **Target Inflow:** For a monthly salary of **${currSym}${salary.toLocaleString()}**, allocate **20% (${currSym}${targetInvest.toLocaleString()}/month)** into index funds.\n2. **Core Vehicle:** Put 100% of this into a low-cost **Nifty 50 Index Fund Direct-Growth**.\n3. **Annual Step-Up:** Increase your SIP by 10% each year when you get an increment.`;
+          explanationText = `**Monthly Allocation Breakdown (50/30/20 Model):**\n\n1. **Essential Expenditures (50%):** Direct fixed commitments.\n2. **Discretionary Spending (30%):** Flexible lifestyle budget.\n3. **Long-Term Capital Accumulation (20% Target: ${currSym}${targetInvest.toLocaleString()}/month):**\n   - Core Index Mutual Fund SIP (60%)\n   - Debt Instruments / PPF / Emergency (25%)\n   - Flexi Cap / Emerging Opportunities (15%)`;
         }
-        followUps = ['Can I start with ₹500?', 'What is Nifty 50?', 'Which app to use?'];
+        followUps = ['How to build an Emergency Fund?', 'Which app is best: Groww vs Zerodha?'];
+      } else if (qLower.includes('risk') || qLower.includes('safe') || qLower.includes('lose')) {
+        explanationText = viewMode === 'simple'
+          ? `All investments carry varying degrees of volatility, but staying disciplined mitigates permanent loss risk:\n\n• **Low Risk:** Liquid Funds, Fixed Deposits, and PPF preserve capital.\n• **Moderate-to-Higher Growth:** Broad market Index Funds (like Nifty 50) fluctuate short-term, but historically recover and compound over 5+ year holding periods.\n• **Avoid:** Unregulated tips, options trading, or borrowing money to invest.`
+          : `**Risk Management Framework:**\n\n1. **Capital Preservation Tier:** Maintain 3–6 months in liquid accounts before committing to market volatility.\n2. **Equity Index Tier:** Nifty 50 Index funds hold the 50 largest corporations, eliminating single-stock default risks.\n3. **Speculative Risks to Eliminate:** Derivatives (F&O), unverified Telegram tips, and margin trading.`;
+        followUps = ['Can I start with just ₹500?', 'What if the market crashes?'];
       } else {
-        explanationText = `**Great question!** Here are 3 golden rules for every first-time earner:\n\n1. **Start Small:** Even ₹500 or ₹1,000/month builds serious wealth over time. Starting early is what counts.\n2. **Keep It Simple:** Stick to a **Nifty 50 Index Fund**—it owns tiny pieces of India\'s top 50 strongest companies.\n3. **Automate Payday:** Set your monthly auto-debit 2 days after salary credit so you pay yourself first.\n\nTry asking me about **₹500 investing**, **Groww vs Zerodha**, **market crashes**, **taxes**, or **withdrawing money**!`;
-        followUps = ['Can I start with just ₹500?', 'Groww vs Zerodha', 'What if the market crashes tomorrow?'];
+        explanationText = `I recommend starting with three verified pillars:\n\n1. **Safety Cushion:** Maintain 2-3 months of essential expenses in a liquid savings account.\n2. **Disciplined Automation:** Allocate a consistent sum (e.g. ₹500 to ₹2,000/month) into a low-cost Nifty 50 Index Fund via automatic SIP.\n3. **Patience:** Let compound returns work over multi-year horizons without reacting to short-term headlines.\n\nSelect a topic below or type a specific inquiry to explore further.`;
+        followUps = ['Can I start with just ₹500?', 'How do I start investing my salary?', 'Which app is best: Groww vs Zerodha?'];
       }
     }
 
-    // Generate dynamic calculation card if user queried a specific amount
+    // 3. Dynamic Calculation Attachment
     let dynamicCalculation = null;
-    if (amountExtracted && (qLower.includes('invest') || qLower.includes('put') || qLower.includes('start') || qLower.includes('money') || qLower.includes('below') || qLower.includes('amount') || qLower.includes('rs') || qLower.includes('rupees') || qLower.includes('1000') || qLower.includes('500'))) {
+    if (amountExtracted && amountExtracted >= 100) {
       const p = amountExtracted;
+      const r = 0.12 / 12; // 12% annual
+      const calcFV = (nMonths) => Math.round(p * ((Math.pow(1 + r, nMonths) - 1) / r) * (1 + r));
       const currSym = currency === 'INR' ? '₹' : '$';
-      
-      const calcFV = (monthly, years) => {
-        const i = 0.12 / 12;
-        const n = years * 12;
-        const fv = monthly * (((Math.pow(1 + i, n) - 1) / i)) * (1 + i);
-        return Math.round(fv);
-      };
 
-      const fv5 = calcFV(p, 5);
-      const fv10 = calcFV(p, 10);
-      const fv20 = calcFV(p, 20);
+      const fv5 = calcFV(5 * 12);
+      const fv10 = calcFV(10 * 12);
+      const fv20 = calcFV(20 * 12);
 
-      const formatVal = (val) => {
-        if (currency === 'INR' && val >= 100000) {
-          return `${currSym}${(val / 100000).toFixed(2)} Lakhs`;
+      const formatLakhs = (amt) => {
+        if (currency === 'INR') {
+          if (amt >= 10000000) return `₹${(amt / 10000000).toFixed(2)} Cr`;
+          if (amt >= 100000) return `₹${(amt / 100000).toFixed(2)} Lakh`;
+          return `₹${amt.toLocaleString()}`;
         }
-        return `${currSym}${val.toLocaleString()}`;
+        return `$${amt.toLocaleString()}`;
       };
 
       dynamicCalculation = {
         amount: p,
         currSym,
-        fv5: formatVal(fv5),
-        inv5: formatVal(p * 12 * 5),
-        fv10: formatVal(fv10),
-        inv10: formatVal(p * 12 * 10),
-        fv20: formatVal(fv20),
-        inv20: formatVal(p * 12 * 20),
+        fv5: formatLakhs(fv5),
+        inv5: formatLakhs(p * 5 * 12),
+        fv10: formatLakhs(fv10),
+        inv10: formatLakhs(p * 10 * 12),
+        fv20: formatLakhs(fv20),
+        inv20: formatLakhs(p * 20 * 12)
       };
     }
 
@@ -178,7 +176,7 @@ Ask me anything about starting small, SIPs, Groww vs Zerodha, taxes, or market s
       };
       setMessages(prev => [...prev, botMsg]);
       setIsTyping(false);
-    }, 380);
+    }, 280);
   };
 
   const clearChat = () => {
@@ -186,7 +184,7 @@ Ask me anything about starting small, SIPs, Groww vs Zerodha, taxes, or market s
       {
         id: 'welcome',
         sender: 'bot',
-        text: `Chat cleared! Ask me any question about starting small, SIPs, apps, or taxes! 🚀`,
+        text: `Chat session cleared. Ask any question regarding starting small, SIPs, broker platforms, or taxes.`,
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
         followUps: ['Can I start with just ₹500?', 'How do I start investing my salary?', 'Which app is best: Groww vs Zerodha?']
       }
@@ -210,61 +208,56 @@ Ask me anything about starting small, SIPs, Groww vs Zerodha, taxes, or market s
     <div className="space-y-6">
       
       {/* Header Banner */}
-      <div className="bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-700 rounded-3xl p-6 sm:p-8 text-white shadow-xl shadow-teal-700/10">
+      <div className="bg-slate-900 border border-slate-800 rounded-xl p-6 sm:p-8 text-white">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <div>
-            <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold mb-2">
-              <Bot className="w-3.5 h-3.5 text-white" />
-              <span>Zero-Jargon Financial Mentor</span>
+          <div className="space-y-1.5">
+            <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-md text-xs font-medium bg-slate-800 text-slate-300 border border-slate-700">
+              <Bot className="w-3.5 h-3.5 text-slate-300" />
+              <span>FinBuddy Advisory Engine</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-black">
-              Ask FinBuddy Anything!
+            <h2 className="text-xl sm:text-2xl font-semibold tracking-tight text-white">
+              Financial Advisory Assistant
             </h2>
-            <p className="mt-1 text-teal-100 text-xs sm:text-sm">
-              Warm, clear guidance for first-time earners. No jargon, no elitism, zero judgment.
+            <p className="text-slate-300 text-xs sm:text-sm">
+              Practical, verified guidance on early-career investing, broker workflows, and asset allocation.
             </p>
           </div>
 
           {/* Mode Switcher Segmented Control */}
           <div className="flex flex-col items-start md:items-end gap-1.5 shrink-0">
-            <span className="text-[10px] font-bold uppercase tracking-wider text-teal-200">
-              Answer Depth Mode:
+            <span className="text-[11px] font-medium text-slate-400">
+              Response Depth:
             </span>
-            <div className="inline-flex p-1 bg-black/20 backdrop-blur-md rounded-2xl border border-white/15">
+            <div className="inline-flex p-1 bg-slate-800 rounded-lg border border-slate-700">
               <button
                 onClick={() => setViewMode('simple')}
-                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+                className={`px-3 py-1.5 rounded-md text-xs font-medium transition-all flex items-center gap-1.5 cursor-pointer ${
                   viewMode === 'simple'
-                    ? 'bg-white text-emerald-950 shadow-md font-extrabold'
-                    : 'text-teal-100 hover:text-white hover:bg-white/10'
+                    ? 'bg-white text-slate-900 shadow-xs'
+                    : 'text-slate-300 hover:text-white'
                 }`}
               >
-                <span>🌱</span>
-                <span>Simple & Friendly</span>
+                <BookOpen className="w-3.5 h-3.5" />
+                <span>Concise Guidance</span>
               </button>
               <button
                 onClick={() => setViewMode('detailed')}
-                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+                className={`px-3 py-1.5 rounded-md text-xs font-medium transition-all flex items-center gap-1.5 cursor-pointer ${
                   viewMode === 'detailed'
-                    ? 'bg-white text-emerald-950 shadow-md font-extrabold'
-                    : 'text-teal-100 hover:text-white hover:bg-white/10'
+                    ? 'bg-white text-slate-900 shadow-xs'
+                    : 'text-slate-300 hover:text-white'
                 }`}
               >
-                <span>📊</span>
+                <Layers className="w-3.5 h-3.5" />
                 <span>Detailed Breakdown</span>
               </button>
             </div>
-            <span className="text-[10px] text-teal-100 font-medium">
-              {viewMode === 'simple' 
-                ? 'Relatable analogies & quick takeaways' 
-                : 'Structured step-by-step guidance & exact numbers'}
-            </span>
           </div>
         </div>
       </div>
 
       {/* Main Chat Interface */}
-      <div className="bg-white rounded-3xl border border-slate-200 shadow-sm flex flex-col h-[560px] overflow-hidden">
+      <div className="bg-white rounded-xl border border-slate-200 flex flex-col h-[560px] overflow-hidden">
         
         {/* Messages Stream */}
         <div className="flex-1 p-4 sm:p-6 overflow-y-auto space-y-4">
@@ -281,30 +274,29 @@ Ask me anything about starting small, SIPs, Groww vs Zerodha, taxes, or market s
               >
                 {/* Avatar */}
                 <div
-                  className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 shadow-xs ${
+                  className={`w-7 h-7 rounded-md flex items-center justify-center shrink-0 border ${
                     isBot
-                      ? 'bg-gradient-to-tr from-emerald-500 to-teal-600 text-white'
-                      : 'bg-slate-900 text-white'
+                      ? 'bg-slate-100 text-slate-700 border-slate-200'
+                      : 'bg-slate-900 text-white border-slate-900'
                   }`}
                 >
-                  {isBot ? <Bot className="w-4 h-4" /> : <User className="w-4 h-4" />}
+                  {isBot ? <Bot className="w-3.5 h-3.5" /> : <User className="w-3.5 h-3.5" />}
                 </div>
 
                 {/* Message Bubble Container */}
                 <div className="space-y-2 flex-1 min-w-0">
                   <div
-                    className={`p-4 rounded-2xl text-xs sm:text-sm leading-relaxed space-y-3 relative group ${
+                    className={`p-4 rounded-lg text-xs sm:text-sm leading-relaxed space-y-3 relative ${
                       isBot
                         ? 'bg-slate-50 border border-slate-200 text-slate-800'
-                        : 'bg-emerald-600 text-white shadow-xs font-medium'
+                        : 'bg-slate-900 text-white font-normal'
                     }`}
                   >
                     {/* Bot Title Tag if Bot */}
                     {isBot && (
-                      <div className="flex items-center justify-between border-b border-slate-200/60 pb-2 mb-2">
-                        <span className="text-[11px] font-bold text-emerald-700 flex items-center gap-1.5">
-                          <Sparkles className="w-3.5 h-3.5" />
-                          <span>FinBuddy Advice • {viewMode === 'simple' ? 'Simple & Friendly' : 'Detailed Breakdown'}</span>
+                      <div className="flex items-center justify-between border-b border-slate-200 pb-2 mb-2">
+                        <span className="text-[11px] font-medium text-slate-600 flex items-center gap-1.5">
+                          <span>FinBuddy Advisory • {viewMode === 'simple' ? 'Concise' : 'Detailed'}</span>
                         </span>
                         
                         {/* Copy button */}
@@ -323,69 +315,69 @@ Ask me anything about starting small, SIPs, Groww vs Zerodha, taxes, or market s
                     )}
 
                     {/* Text Body */}
-                    <div className="whitespace-pre-line text-slate-800">
+                    <div className="whitespace-pre-line text-inherit">
                       {m.text}
                     </div>
 
                     {/* Dynamic Calculation Card if triggered */}
                     {isBot && m.dynamicCalc && (
-                      <div className="mt-3 p-3.5 rounded-xl bg-emerald-50 border border-emerald-200 text-slate-900 space-y-2">
+                      <div className="mt-3 p-3.5 rounded-lg bg-emerald-50/70 border border-emerald-200 text-slate-900 space-y-2">
                         <div className="flex items-center justify-between">
-                          <span className="text-xs font-black text-emerald-900 flex items-center gap-1.5">
-                            <TrendingUp className="w-4 h-4 text-emerald-700" />
-                            Live Wealth Projection for {m.dynamicCalc.currSym}{m.dynamicCalc.amount.toLocaleString()}/month
+                          <span className="text-xs font-semibold text-emerald-950 flex items-center gap-1.5">
+                            <TrendingUp className="w-3.5 h-3.5 text-emerald-700" />
+                            Compound Projection for {m.dynamicCalc.currSym}{m.dynamicCalc.amount.toLocaleString()}/month
                           </span>
-                          <span className="text-[10px] bg-emerald-200 text-emerald-900 font-bold px-2 py-0.5 rounded-full">
-                            @ 12% CAGR
+                          <span className="text-[10px] bg-emerald-100 text-emerald-800 font-medium px-2 py-0.5 rounded-md border border-emerald-200">
+                            12% CAGR
                           </span>
                         </div>
 
                         <div className="grid grid-cols-3 gap-2 text-center pt-1">
-                          <div className="bg-white p-2 rounded-lg border border-emerald-100">
+                          <div className="bg-white p-2 rounded-md border border-emerald-100">
                             <span className="text-[10px] text-slate-500 font-medium block">5 Years</span>
-                            <span className="text-xs font-black text-slate-900">{m.dynamicCalc.fv5}</span>
-                            <span className="text-[9px] text-slate-400 block">Inv: {m.dynamicCalc.inv5}</span>
+                            <span className="text-xs font-semibold tabular-nums text-slate-900">{m.dynamicCalc.fv5}</span>
+                            <span className="text-[10px] text-slate-400 block tabular-nums">Deposits: {m.dynamicCalc.inv5}</span>
                           </div>
-                          <div className="bg-white p-2 rounded-lg border border-emerald-100">
+                          <div className="bg-white p-2 rounded-md border border-emerald-100">
                             <span className="text-[10px] text-slate-500 font-medium block">10 Years</span>
-                            <span className="text-xs font-black text-emerald-700">{m.dynamicCalc.fv10}</span>
-                            <span className="text-[9px] text-slate-400 block">Inv: {m.dynamicCalc.inv10}</span>
+                            <span className="text-xs font-semibold tabular-nums text-emerald-700">{m.dynamicCalc.fv10}</span>
+                            <span className="text-[10px] text-slate-400 block tabular-nums">Deposits: {m.dynamicCalc.inv10}</span>
                           </div>
-                          <div className="bg-white p-2 rounded-lg border border-emerald-200 bg-emerald-50/50">
-                            <span className="text-[10px] text-emerald-800 font-bold block">20 Years</span>
-                            <span className="text-xs font-black text-emerald-800">{m.dynamicCalc.fv20}</span>
-                            <span className="text-[9px] text-slate-400 block">Inv: {m.dynamicCalc.inv20}</span>
+                          <div className="bg-white p-2 rounded-md border border-emerald-200">
+                            <span className="text-[10px] text-emerald-800 font-medium block">20 Years</span>
+                            <span className="text-xs font-semibold tabular-nums text-emerald-800">{m.dynamicCalc.fv20}</span>
+                            <span className="text-[10px] text-slate-400 block tabular-nums">Deposits: {m.dynamicCalc.inv20}</span>
                           </div>
                         </div>
                       </div>
                     )}
 
                     {/* Footer Info & Feedback */}
-                    <div className="flex items-center justify-between pt-1 text-[10px]">
+                    <div className="flex items-center justify-between pt-1 text-[11px]">
                       {isBot && (
                         <div className="flex items-center gap-2">
                           <button
                             onClick={() => handleLike(m.id, 'like')}
                             className={`p-1 rounded transition-colors cursor-pointer ${
-                              userLiked === 'like' ? 'text-emerald-600 font-bold' : 'text-slate-400 hover:text-slate-600'
+                              userLiked === 'like' ? 'text-emerald-700 font-medium' : 'text-slate-400 hover:text-slate-600'
                             }`}
                             title="Helpful"
                           >
-                            <ThumbsUp className="w-3 h-3 inline mr-0.5" /> Helpful
+                            <ThumbsUp className="w-3 h-3 inline mr-1" /> Helpful
                           </button>
                           <button
                             onClick={() => handleLike(m.id, 'dislike')}
                             className={`p-1 rounded transition-colors cursor-pointer ${
-                              userLiked === 'dislike' ? 'text-rose-600 font-bold' : 'text-slate-400 hover:text-slate-600'
+                              userLiked === 'dislike' ? 'text-rose-700 font-medium' : 'text-slate-400 hover:text-slate-600'
                             }`}
                             title="Not helpful"
                           >
-                            <ThumbsDown className="w-3 h-3 inline mr-0.5" />
+                            <ThumbsDown className="w-3 h-3 inline mr-1" />
                           </button>
                         </div>
                       )}
                       
-                      <span className={`ml-auto ${isBot ? 'text-slate-400' : 'text-emerald-200'}`}>
+                      <span className={`ml-auto tabular-nums ${isBot ? 'text-slate-400' : 'text-slate-400'}`}>
                         {m.timestamp}
                       </span>
                     </div>
@@ -394,17 +386,17 @@ Ask me anything about starting small, SIPs, Groww vs Zerodha, taxes, or market s
                   {/* Follow-up Action Chips */}
                   {isBot && m.followUps && m.followUps.length > 0 && (
                     <div className="flex flex-wrap gap-1.5 pt-1">
-                      <span className="text-[10px] font-bold text-slate-400 flex items-center gap-1">
-                        <span>Follow up:</span>
+                      <span className="text-[11px] font-medium text-slate-400 flex items-center gap-1">
+                        Follow up:
                       </span>
                       {m.followUps.map((chip, idx) => (
                         <button
                           key={idx}
                           onClick={() => handleSend(chip)}
-                          className="px-2.5 py-1 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200/80 text-[11px] font-semibold transition-all cursor-pointer flex items-center gap-1 shadow-2xs"
+                          className="px-2.5 py-1 rounded-md bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-200 text-[11px] font-medium transition-all cursor-pointer flex items-center gap-1.5"
                         >
                           <span>{chip}</span>
-                          <ArrowRight className="w-3 h-3 text-emerald-600" />
+                          <ArrowRight className="w-3 h-3 text-slate-400" />
                         </button>
                       ))}
                     </div>
@@ -417,8 +409,8 @@ Ask me anything about starting small, SIPs, Groww vs Zerodha, taxes, or market s
 
           {isTyping && (
             <div className="flex items-center gap-2 text-xs text-slate-500 italic p-2">
-              <Bot className="w-4 h-4 text-emerald-600 animate-pulse" />
-              <span>FinBuddy is typing a warm, jargon-free answer...</span>
+              <Bot className="w-4 h-4 text-slate-600 animate-pulse" />
+              <span>FinBuddy is generating advice...</span>
             </div>
           )}
 
@@ -426,13 +418,13 @@ Ask me anything about starting small, SIPs, Groww vs Zerodha, taxes, or market s
         </div>
 
         {/* Quick Suggestion Prompt Chips */}
-        <div className="px-4 py-2.5 bg-slate-50 border-t border-slate-200/80 flex items-center gap-2 overflow-x-auto scrollbar-none shrink-0">
-          <span className="text-[11px] font-bold text-slate-500 shrink-0">Quick questions:</span>
+        <div className="px-4 py-2.5 bg-slate-50 border-t border-slate-200 flex items-center gap-2 overflow-x-auto scrollbar-none shrink-0">
+          <span className="text-[11px] font-medium text-slate-500 shrink-0">Common queries:</span>
           {QUICK_PROMPTS.map((prompt, i) => (
             <button
               key={i}
               onClick={() => handleSend(prompt)}
-              className="px-3 py-1 rounded-full bg-white border border-slate-200 hover:border-emerald-500 text-slate-700 hover:text-emerald-700 text-xs whitespace-nowrap transition-all shadow-2xs cursor-pointer font-medium"
+              className="px-2.5 py-1 rounded-md bg-white border border-slate-200 hover:border-slate-300 text-slate-700 text-xs whitespace-nowrap transition-all cursor-pointer font-medium"
             >
               {prompt}
             </button>
@@ -443,15 +435,15 @@ Ask me anything about starting small, SIPs, Groww vs Zerodha, taxes, or market s
         <div className="p-3 sm:p-4 bg-white border-t border-slate-200 flex items-center gap-2 shrink-0">
           <input
             type="text"
-            placeholder="Ask about investing ₹500, SIPs, Groww vs Zerodha, safety..."
+            placeholder="Ask about starting small, SIPs, broker selection, taxation..."
             value={inputQuery}
             onChange={(e) => setInputQuery(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-            className="flex-1 px-4 py-3 text-xs sm:text-sm bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-emerald-500 focus:bg-white outline-none transition-all"
+            className="flex-1 px-3.5 py-2.5 text-xs sm:text-sm bg-slate-50 border border-slate-200 rounded-lg focus:ring-1 focus:ring-slate-400 focus:bg-white outline-none transition-all"
           />
           <button
             onClick={() => clearChat()}
-            className="p-3 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-600 transition-all cursor-pointer shrink-0"
+            className="p-2.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-600 transition-all cursor-pointer shrink-0"
             title="Clear Chat"
           >
             <Trash2 className="w-4 h-4" />
@@ -459,7 +451,7 @@ Ask me anything about starting small, SIPs, Groww vs Zerodha, taxes, or market s
           <button
             onClick={() => handleSend()}
             disabled={!inputQuery.trim()}
-            className="p-3 rounded-2xl bg-emerald-600 hover:bg-emerald-500 disabled:opacity-40 disabled:cursor-not-allowed text-white shadow-md shadow-emerald-600/20 transition-all cursor-pointer shrink-0"
+            className="p-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 disabled:opacity-40 disabled:cursor-not-allowed text-white transition-all cursor-pointer shrink-0"
           >
             <Send className="w-4 h-4" />
           </button>

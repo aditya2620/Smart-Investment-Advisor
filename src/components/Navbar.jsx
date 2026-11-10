@@ -88,19 +88,19 @@ export default function Navbar({ activeTab, setActiveTab, currency, setCurrency 
           {/* Logo & Branding */}
           <div 
             onClick={() => setActiveTab('salary-plan')}
-            className="flex items-center gap-2 sm:gap-3 cursor-pointer group min-w-0 shrink"
+            className="flex items-center gap-2.5 cursor-pointer group min-w-0 shrink"
             title="Go to Home / Salary Plan"
           >
-            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-600 flex items-center justify-center text-white shadow-md shadow-emerald-500/20 group-hover:scale-105 transition-transform shrink-0">
-              <span className="text-base sm:text-lg">🌱</span>
+            <div className="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-700 border border-emerald-200/90 flex items-center justify-center shrink-0 transition-colors group-hover:bg-emerald-100">
+              <TrendingUp className="w-4 h-4 text-emerald-600" />
             </div>
             <div className="truncate">
-              <span className="font-extrabold text-sm sm:text-base text-slate-900 tracking-tight flex items-center gap-1">
+              <span className="font-semibold text-sm sm:text-base text-slate-900 tracking-tight flex items-center gap-1">
                 <span className="sm:hidden">Smart</span>
                 <span className="hidden sm:inline">Smart Investment</span>
-                <span className="text-emerald-600">Advisor</span>
+                <span className="text-emerald-700">Advisor</span>
               </span>
-              <p className="text-[10px] text-slate-500 hidden md:block leading-tight">Explain Like I'm 10 • Safe First-Salary Wealth</p>
+              <p className="text-[11px] text-slate-500 hidden md:block leading-tight font-normal">First-Salary Wealth & Financial Strategy</p>
             </div>
           </div>
 
@@ -242,11 +242,11 @@ export default function Navbar({ activeTab, setActiveTab, currency, setCurrency 
             <ChevronRight className="w-3.5 h-3.5 text-slate-300 shrink-0" />
 
             {/* Level 3: Current Section Tag */}
-            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-50/90 text-emerald-900 border border-emerald-200 font-extrabold shadow-2xs">
+            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-50/90 text-emerald-900 border border-emerald-200/90 font-semibold shadow-2xs">
               <CurrentIcon className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
               <span className="truncate max-w-[130px] sm:max-w-none">{currentItem.label}</span>
               {currentItem.badge && (
-                <span className="hidden md:inline-block text-[9px] font-black uppercase tracking-wider px-1.5 py-0.2 bg-emerald-600 text-white rounded-md ml-1">
+                <span className="hidden md:inline-block text-[10px] font-semibold px-1.5 py-0.2 bg-emerald-700 text-white rounded-md ml-1">
                   {currentItem.badge}
                 </span>
               )}
@@ -258,9 +258,9 @@ export default function Navbar({ activeTab, setActiveTab, currency, setCurrency 
           <div className="flex items-center gap-1.5 sm:gap-2 ml-auto">
             
             {/* Step Counter Pill */}
-            <div className="hidden md:flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-100 text-slate-600 text-[11px] font-semibold border border-slate-200">
+            <div className="hidden md:flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-100 text-slate-600 text-[11px] font-medium border border-slate-200">
               <span>Section</span>
-              <span className="font-extrabold text-slate-900">{currentIndex + 1}</span>
+              <span className="font-semibold text-slate-900">{currentIndex + 1}</span>
               <span>of {totalTabs}</span>
             </div>
 

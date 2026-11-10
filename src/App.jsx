@@ -11,12 +11,11 @@ import ScamRadar from './components/ScamRadar';
 import FirstStepGuide from './components/FirstStepGuide';
 import ExitGuide from './components/ExitGuide';
 import { 
-  Sparkles, 
   ArrowUpRight, 
-  ShieldCheck, 
   TrendingUp, 
-  HeartHandshake,
-  Compass
+  ShieldCheck, 
+  Compass,
+  Layers
 } from 'lucide-react';
 import { formatCurrency } from './utils/financialMath';
 import { TABS_ORDER } from './data/navigation';
@@ -30,7 +29,6 @@ export default function App() {
   // Keyboard navigation shortcuts: Left & Right arrow keys
   useEffect(() => {
     const handleKeyDown = (e) => {
-      // Do not trigger tab switch if user is typing in an input field or textarea
       if (
         ['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement?.tagName) ||
         document.activeElement?.isContentEditable
@@ -62,9 +60,9 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col selection:bg-emerald-500 selection:text-white">
+    <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col selection:bg-emerald-600 selection:text-white">
       
-      {/* Top Unified Navbar & Breadcrumb Navigation */}
+      {/* Top Unified Navbar & Navigation */}
       <Navbar 
         activeTab={activeTab} 
         setActiveTab={setActiveTab} 
@@ -73,37 +71,37 @@ export default function App() {
       />
 
       {/* Main Content Area */}
-      <main className="flex-1 w-full px-4 sm:px-6 lg:px-8 py-5 sm:py-6 space-y-5">
+      <main className="flex-1 w-full px-4 sm:px-6 lg:px-8 py-5 sm:py-6 space-y-6">
 
-        {/* Quick Stats Mini-Bar for Starter Awareness */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-white p-3 sm:p-4 rounded-2xl border border-slate-200 shadow-2xs">
-          <div className="p-2 sm:p-3 rounded-xl bg-slate-50 border border-slate-100">
-            <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">Monthly In-Hand</span>
-            <span className="text-sm sm:text-base font-black text-slate-900">{formatCurrency(salary, currency)}</span>
+        {/* Quick Stats Summary Bar */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-white p-3 sm:p-3.5 rounded-xl border border-slate-200/90 shadow-2xs">
+          <div className="p-2.5 sm:p-3 rounded-lg bg-slate-50/80 border border-slate-100">
+            <span className="text-[11px] font-medium text-slate-500 block">Monthly in-hand</span>
+            <span className="text-sm sm:text-base font-semibold text-slate-900 tabular-nums">{formatCurrency(salary, currency)}</span>
           </div>
-          <div className="p-2 sm:p-3 rounded-xl bg-emerald-50 border border-emerald-100">
-            <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-700 block">Invest Target (20%)</span>
-            <span className="text-sm sm:text-base font-black text-emerald-800">{formatCurrency(investAmount, currency)}</span>
+          <div className="p-2.5 sm:p-3 rounded-lg bg-emerald-50/60 border border-emerald-100/80">
+            <span className="text-[11px] font-medium text-emerald-800 block">Investment target (20%)</span>
+            <span className="text-sm sm:text-base font-semibold text-emerald-900 tabular-nums">{formatCurrency(investAmount, currency)}</span>
           </div>
-          <div className="p-2 sm:p-3 rounded-xl bg-blue-50 border border-blue-100">
-            <span className="text-[10px] font-bold uppercase tracking-wider text-blue-700 block">Emergency Target (6mo)</span>
-            <span className="text-sm sm:text-base font-black text-blue-800">{formatCurrency(Math.round(salary * 0.5 * 6), currency)}</span>
+          <div className="p-2.5 sm:p-3 rounded-lg bg-slate-50/80 border border-slate-100">
+            <span className="text-[11px] font-medium text-slate-500 block">Emergency reserve (6mo)</span>
+            <span className="text-sm sm:text-base font-semibold text-slate-900 tabular-nums">{formatCurrency(Math.round(salary * 0.5 * 6), currency)}</span>
           </div>
           <div 
             onClick={() => setActiveTab('first-steps')}
-            className="p-2 sm:p-3 rounded-xl bg-amber-50 hover:bg-amber-100/80 border border-amber-200 cursor-pointer transition-all flex items-center justify-between"
+            className="p-2.5 sm:p-3 rounded-lg bg-slate-50 hover:bg-slate-100/80 border border-slate-200 cursor-pointer transition-colors flex items-center justify-between"
           >
             <div>
-              <span className="text-[10px] font-bold uppercase tracking-wider text-amber-800 block">Action Guide</span>
-              <span className="text-xs font-black text-amber-900">Start in 15 Mins →</span>
+              <span className="text-[11px] font-medium text-slate-500 block">Execution roadmap</span>
+              <span className="text-xs font-semibold text-slate-800">Account setup guide →</span>
             </div>
-            <ArrowUpRight className="w-4 h-4 text-amber-700 shrink-0" />
+            <ArrowUpRight className="w-3.5 h-3.5 text-slate-500 shrink-0" />
           </div>
         </div>
 
         {/* Tab Router Content */}
         {activeTab === 'salary-plan' && (
-          <div className="space-y-8">
+          <div className="space-y-6">
             <SalarySplitter 
               salary={salary} 
               setSalary={setSalary} 
@@ -176,12 +174,13 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white border-t border-slate-200 mt-12 py-8 text-xs text-slate-500">
-        <div className="w-full px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <footer className="bg-white border-t border-slate-200/90 mt-12 py-6 text-xs text-slate-500">
+        <div className="w-full px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="flex items-center gap-2">
-            <span className="text-base">🌱</span>
-            <span className="font-bold text-slate-800">Smart Investment Advisor</span>
-            <span>— Making wealth generation simple, safe, and jargon-free for first-time earners.</span>
+            <TrendingUp className="w-3.5 h-3.5 text-emerald-600" />
+            <span className="font-semibold text-slate-800">Smart Investment Advisor</span>
+            <span className="text-slate-400">•</span>
+            <span>Structured wealth generation and financial literacy for first-time earners.</span>
           </div>
 
           <div className="text-center sm:text-right text-[11px] text-slate-400">

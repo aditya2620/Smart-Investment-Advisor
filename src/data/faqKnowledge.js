@@ -2,256 +2,251 @@ export const FIN_BUDDY_KNOWLEDGE = [
   {
     id: 'small-amount',
     keywords: ['1000', '500', '200', '100', 'below 1000', 'small amount', 'less amount', 'less money', 'tiny amount', 'minimum', 'can i start with', 'small budget'],
-    question: 'Can I really start investing with less money, like ₹500 or ₹1,000?',
-    simpleExplanation: `**YES! 100% Absolutely!** 🎉
+    question: 'Can I really start investing with modest amounts, like ₹500 or ₹1,000?',
+    simpleExplanation: `**Yes, absolutely.**
 
-You do NOT need a huge bank balance or lakhs of rupees to start investing. 
+You do not need substantial savings to begin building capital.
 
-- **Entry level is super low:** Most top mutual funds in India let you start an automated monthly investment (SIP) for as low as **₹100 to ₹500/month**—that's less than the cost of a weekend movie or coffee!
-- **How it grows:** If you invest just **₹1,000/month** into a simple Nifty 50 Index Fund:
-  - In 10 years (at 12% average growth), your money grows to **₹2.3 Lakhs** (you put in ₹1.2 Lakhs).
-  - In 20 years, it snowballs into **₹10 Lakhs**!
+- **Low Entry Thresholds:** Most SEBI-regulated index funds in India allow systematic monthly investment (SIP) mandates starting at **₹100 to ₹500/month**.
+- **Compounding Impact:** Contributing **₹1,000/month** into a broad market index fund (assuming historical ~12% CAGR):
+  - In 10 years, contributions accumulate to **~₹2.3 Lakhs** (from ₹1.2 Lakhs invested).
+  - In 20 years, it approaches **~₹10 Lakhs** (from ₹2.4 Lakhs invested).
 
-Starting small with ₹500/month is actually the smartest way to build the habit without feeling any financial stress.`,
-    detailedExplanation: `**Yes, Indian financial markets allow you to build serious wealth starting with tiny amounts.**
+Starting with ₹500/month is one of the most effective ways to establish mechanical financial discipline without straining monthly liquidity.`,
+    detailedExplanation: `**Yes, Indian capital markets accommodate disciplined wealth accumulation starting from modest denominations.**
 
-### Why Starting Small Works:
-1. **Low Minimum Ticket Size:** SEBI-regulated Direct Index Mutual Funds allow Systematic Investment Plans (SIPs) starting at **₹100 – ₹500 per month**.
-2. **Wealth Growth Example (at ~12% average historical market returns):**
-   - **₹500 / month:** Grows to **₹1.16 Lakhs** in 10 years | **₹5.0 Lakhs** in 20 years.
-   - **₹1,000 / month:** Grows to **₹2.32 Lakhs** in 10 years | **₹10.0 Lakhs** in 20 years.
-3. **The Step-Up Strategy:** You don't stay at ₹500 forever! Whenever you get a salary hike, increase your monthly SIP by just 10% (e.g., ₹500 → ₹550). That small change nearly doubles your long-term wealth!
+### Structural Advantages of Micro-SIPs:
+1. **Low Minimum Ticket Size:** SEBI-regulated Direct Index Mutual Funds support Systematic Investment Plans (SIPs) starting at **₹100 – ₹500 per month**.
+2. **Wealth Projection (assuming ~12% historical market CAGR):**
+   - **₹500 / month:** Projects to **₹1.16 Lakhs** in 10 years | **₹5.0 Lakhs** in 20 years.
+   - **₹1,000 / month:** Projects to **₹2.32 Lakhs** in 10 years | **₹10.0 Lakhs** in 20 years.
+3. **Step-Up Strategy:** As earned compensation increases, incrementally scaling the monthly SIP by 10% annually substantially magnifies terminal portfolio value over multi-decade cycles.
 
-**Action Plan:** Download an app like Groww or Zerodha, set up a ₹500/month auto-debit into a **Nifty 50 Index Fund (Direct-Growth)** on your salary day.`,
+**Action Step:** Via a regulated broker (such as Groww or Zerodha), institute a ₹500/month auto-debit into a **Nifty 50 Index Fund (Direct-Growth)** scheduled immediately following monthly payroll.`,
     followUps: ['Calculate ₹500 compounding', 'Which app to download?', 'Is Nifty 50 safe?']
   },
   {
     id: 'first-time-start',
     keywords: ['how to start', 'where to start', 'beginner', 'first time', 'first salary', 'where do i start', 'step 1', 'starting out'],
-    question: 'I just got my first salary. Where on earth should I start?',
-    simpleExplanation: `Congrats on your salary! 🎉 Here is a super simple 3-step game plan:
+    question: 'I recently received my first salary. Where should I begin?',
+    simpleExplanation: `A clear, institutional 3-step blueprint for first-time earners:
 
-1. **The 50/30/20 Rule:**
-   - Keep **50%** for your actual needs (rent, food, bills).
-   - Use **30%** for fun (eating out, hobbies, shopping).
-   - Save **20%** for your future self!
+1. **The 50/30/20 Framework:**
+   - Allocate **50%** to mandatory obligations (rent, food, transit, utilities).
+   - Reserve **30%** for discretionary expenditures.
+   - Commit **20%** directly toward long-term savings and investments.
 
-2. **Build a Safety Cushion First:**
-   - Keep 2-3 months of living expenses in your normal bank account for emergencies so you never have to panic.
+2. **Maintain Liquid Cash Reserves:**
+   - Retain 2 to 3 months of basic living expenses in your primary savings account or a liquid fund for unexpected contingencies.
 
-3. **Start an Automated Index Fund SIP:**
-   - Pick an app (like Groww or Zerodha), choose a **Nifty 50 Index Fund**, and schedule an automatic ₹500 or ₹1,000 monthly investment right after payday.
+3. **Automate Index SIPs:**
+   - Open a paperless demat account, select a low-cost **Nifty 50 Index Fund (Direct-Growth)**, and schedule an automatic SIP debit immediately post-payday.
 
-That's it! No complex charts, no watching news every day.`,
-    detailedExplanation: `**Here is your practical 3-Step First Salary Blueprint:**
+This approach removes emotional friction and establishes institutional consistency.`,
+    detailedExplanation: `**Institutional First-Salary Blueprint:**
 
-### Step 1: Secure Your Base (Emergency Shield)
-Before buying stocks, keep **2 to 3 months of essential living expenses** in your bank account or a Liquid Mutual Fund. This ensures a temporary emergency never forces you to borrow money.
+### Step 1: Liquidity Protection (Emergency Buffer)
+Prior to committing capital to volatile equity instruments, secure **2 to 3 months of essential fixed costs** in a liquid savings account or liquid mutual fund. This mitigates forced liquidations during emergencies.
 
-### Step 2: Set Your Monthly Cash Flow Split
-- **50% Needs:** Rent, groceries, transport, utilities.
-- **30% Lifestyle:** Dining out, travel, entertainment.
-- **20% Wealth Building:** Automatically invested on payday.
+### Step 2: Establish Cash-Flow Ratios
+- **50% Needs:** Housing, groceries, healthcare, transit.
+- **30% Discretionary:** Lifestyle, recreation, travel.
+- **20% Long-Term Capital:** Automated investment allocations.
 
-### Step 3: Automate Equity Wealth Creation
-- Open a paperless account on **Groww** or **Zerodha**.
-- Choose a **Nifty 50 Index Fund Direct-Growth** (e.g., UTI or Navi Nifty 50 with expense ratio < 0.2%).
-- Set the monthly SIP auto-debit date 2 days after your salary hits your account (e.g., 3rd or 5th of every month).`,
+### Step 3: Implement Automated Equity Compounding
+- Complete SEBI KYC verification through a registered direct broker.
+- Select a low-expense **Nifty 50 Index Fund (Direct-Growth)** with a low tracking error (e.g. UTI, Navi, or HDFC Index Fund).
+- Configure the auto-debit mandate 2 to 3 business days post-payroll.`,
     followUps: ['Can I start with ₹500?', 'What is an Emergency Fund?', 'Groww vs Zerodha']
   },
   {
     id: 'market-crash',
     keywords: ['crash', 'market drop', 'loss', 'down', 'recession', 'panic', 'fall', 'losing money'],
-    question: 'What should I do if the stock market drops or crashes tomorrow?',
-    simpleExplanation: `**Don't panic—a market drop is actually a discount sale!** 🏷️
+    question: 'What is the appropriate protocol if the stock market undergoes a severe drawdown?',
+    simpleExplanation: `**Do not panic-sell during cyclical market corrections.**
 
-Imagine your favorite shoe store puts top-brand sneakers on **30% OFF clearance sale**. You don't run away crying—you get excited!
+Market pullbacks represent discounted unit acquisition opportunities for disciplined investors.
 
-When the stock market drops:
-- Great companies like Tata, Reliance, and Infosys haven't disappeared; their share prices are just temporarily on sale.
-- Your monthly ₹500 SIP automatically buys **more units** for the exact same money.
-- When the market recovers (which it always has historically), your wealth bounces back even higher!
+When equity indices decline:
+- The fundamental productive capacity of leading corporations remains intact; market quotations simply compress temporarily.
+- Fixed monthly SIP contributions acquire **more index units at lower unit cost** (rupee-cost averaging).
+- Historically, diversified equity indices recover and attain new peaks over 5 to 7 year holding windows.
 
-**Golden Rule:** Never invest money you need in the next 12 months. Equity is for money you can leave untouched for 3+ years.`,
-    detailedExplanation: `**How to handle market corrections like a seasoned investor:**
+**Core Rule:** Never allocate capital needed within 12–18 months into equity markets. Equities are structured for multi-year capital compounding.`,
+    detailedExplanation: `**Protocol for Managing Equity Market Drawdowns:**
 
-### 1. Do Not Sell in Panic
-Selling during a market dip turns temporary price dips into real losses. Over any 5 to 7 year period in Indian stock market history, broad market index funds have recovered from every single crash (2008 Financial Crisis, 2020 COVID shock) and gone on to hit new all-time highs.
+### 1. Maintain Positions (Avoid Forced Realization of Losses)
+Liquidating holdings during cyclical downturns converts temporary mark-to-market fluctuations into permanent capital loss. Across rolling 7-year holding periods in Indian capital market history, broad market equity indices have recovered from systemic corrections (e.g., 2008 GFC, March 2020) to reach higher valuation bases.
 
-### 2. Rupee-Cost Averaging Works for You
-With a monthly SIP, market dips are your best friend. Your fixed monthly amount buys **more mutual fund units at lower prices**. When the market climbs back up, those extra units accelerate your profit growth.
+### 2. Systematic Rupee-Cost Averaging
+Monthly SIP commitments exploit drawdowns automatically. By committing constant nominal cash flows, the mandate procures higher unit volumes at depressed net asset values (NAV), which amplifies portfolio returns when macro recovery ensues.
 
-### 3. Protection Rule
-Keep money you'll need within 1–2 years (rent, fees, trip savings) in a safe bank account or Fixed Deposit, so market swings never disturb your peace of mind.`,
+### 3. Liquidity Segregation
+Ensure all short-term liquidity liabilities (due within 18 months) are ring-fenced within cash equivalents, insulating core long-term equity allocations from premature liquidation.`,
     followUps: ['Is Nifty 50 safe?', 'When to withdraw money?', 'How does SIP work?']
   },
   {
     id: 'crypto-warning',
     keywords: ['crypto', 'bitcoin', 'ethereum', 'meme coin', 'doge', 'coin', 'crypto trading'],
-    question: 'My friend is making money in Crypto. Should I put my salary in Crypto?',
-    simpleExplanation: `Be very careful! Crypto is like riding a wild roller-coaster without a seatbelt. 🎢
+    question: 'Should early-career earners allocate their primary savings into cryptocurrency?',
+    simpleExplanation: `Exercise strong caution regarding speculative digital tokens.
 
-- **Extreme Ups and Downs:** Crypto prices jump up and crash down super fast based on internet hype and tweets. It's not uncommon to lose 50% to 70% of your money in a few weeks.
-- **High Taxes in India:** The Indian government taxes crypto profits at a heavy flat **30% tax**, plus you cannot offset any losses against your gains.
-- **The Smart Strategy:** Build your real financial foundation first with safe index funds. If you really want to try crypto, only put in money you are 100% comfortable losing (less than 2-3% of your savings).`,
-    detailedExplanation: `**Balanced Reality Check on Cryptocurrency:**
+- **Extreme Asymmetric Volatility:** Crypto assets trade on sentiment and liquidity rather than verified corporate earnings. 50% to 70% drawdowns can occur over brief intervals.
+- **Taxation Architecture:** Under Indian tax statutes, digital virtual asset gains face a flat **30% tax rate** (+ 4% cess) with **1% TDS** per transaction, and capital losses cannot offset profits across other asset classes.
+- **Allocation Rule:** Establish a stable core in regulated equity index funds and liquid reserves first. Any exploratory allocation to digital assets should be restricted to capital you can fully afford to lose (< 2%-3% of total assets).`,
+    detailedExplanation: `**Risk Analysis for Digital Virtual Assets:**
 
-### Key Risks for Beginners:
-1. **No Underlying Business Cash Flow:** Stocks represent real companies with profits, factories, and products. Crypto value relies entirely on whether someone else is willing to buy it from you at a higher price later.
-2. **Heavy Volatility:** Cryptocurrencies frequently experience sudden 60%–80% market drops.
-3. **Indian Tax Rules:**
-   - Flat **30% tax on profits** (+ 4% cess).
-   - **1% TDS** deducted on every trade.
-   - Crypto losses **cannot** be offset against profits from stocks or other investments.
+### Fundamental Vulnerabilities:
+1. **Absence of Intrinsic Cash Flows:** Equities represent ownership in companies generating operating revenues and cash flows. Crypto valuations rely predominantly on speculative secondary market pricing dynamics.
+2. **Drawdown Severity:** Historical drawdowns frequently exceed 70% to 80% peak-to-trough.
+3. **Statutory Tax Framework:**
+   - Flat **30% tax on net proceeds** (+ statutory cess).
+   - Mandatory **1% TDS** on transfer values.
+   - Disallowance of loss set-off against equity, debt, or other income streams.
 
-**Bottom Line:** First establish your emergency safety net and monthly index fund SIP. If you want to experiment with crypto, treat it as high-risk leisure capital and limit it to **under 2%-5%** of your total portfolio.`,
+**Conclusion:** Prioritize foundational safety net provisions and core index fund exposure. Speculative assets should remain strictly bounded within discretionary risk limits.`,
     followUps: ['Why is F&O dangerous?', 'Where should I invest instead?', 'How are investments taxed?']
   },
   {
     id: 'trading-fo',
     keywords: ['f&o', 'options', 'futures', 'intraday', 'day trading', 'option trading', 'quick money', 'trading'],
-    question: 'What is Option Trading / F&O and why does everyone warn against it?',
-    simpleExplanation: `F&O (Futures & Options) is like entering a casino where **93 out of 100 people lose their hard-earned money**. 🎰
+    question: 'What is Futures & Options (F&O) trading and why is it discouraged for retail investors?',
+    simpleExplanation: `Derivatives trading is a leveraged zero-sum environment where **over 90% of retail participants sustain net financial losses**.
 
-- **It\'s betting, not investing:** Intraday trading and option buying is guessing which direction a stock will move in the next 5 minutes.
-- **SEBI Official Warning:** India\'s official market regulator (SEBI) found that **93% of retail traders lost money in F&O**, with an average loss of over **₹1.25 Lakh per person**.
-- **Social Media Reality:** People on Instagram only show screenshots when they win a small trade, but hide the massive losses they suffer on other days.
+- **Speculation vs Investing:** Intraday derivatives trading involves short-term direction bets amplified by leverage, rather than participating in long-term corporate growth.
+- **SEBI Empirical Findings:** Regulatory research by SEBI demonstrated that **93% of individual retail traders incurred net losses in F&O**, with an average loss of over **₹1.25 Lakh per participant**.
+- **Institutional Edge:** Algorithmic systems, institutional desks, and high-frequency market makers hold structural advantages over individual retail traders.
 
-**Stick to Index Funds:** Real wealth is built by holding great companies over time, not by betting on 5-minute price spikes!`,
-    detailedExplanation: `**Official Regulatory Facts on F&O Trading:**
+True wealth is created through long-term participation in broad economic expansion, not leveraged intraday speculation.`,
+    detailedExplanation: `**Regulatory Analysis of Retail Derivatives Trading:**
 
-### 1. SEBI Study Findings
-An official study by SEBI (Securities and Exchange Board of India) revealed:
-- **93% of individual retail traders suffered net financial losses** in F&O.
-- Average net loss per active trader was **₹1.25 Lakh**.
-- Institutional algorithms and professional trading desks extract almost all retail profits.
+### 1. SEBI Published Findings
+Empirical data released by the Securities and Exchange Board of India (SEBI) confirmed:
+- **93% of individual retail traders in equity F&O incurred net losses**.
+- The average net loss per active participant was **₹1.25 Lakh**.
+- More than 75% of unprofitable traders continued trading despite persistent drawdowns.
 
-### 2. High Transaction Costs
-Fees, brokerage charges, Securities Transaction Tax (STT), and GST eat away your capital even on winning trades.
+### 2. Transaction Costs & Friction
+Exchange turnover charges, Securities Transaction Tax (STT), brokerage fees, and GST consistently erode thin operating margins even on winning positions.
 
-### 3. Wealth Building vs. Trading
-Building wealth in Nifty 50 Index Funds uses India's overall economic growth to grow your money steadily, while day trading is a zero-sum game where most beginners lose their savings.`,
+### 3. Structural Distinction
+Broad market index investing leverages long-term real GDP and enterprise revenue growth. In contrast, derivatives constitute a leveraged zero-sum market where retail participants face asymmetric disadvantages.`,
     followUps: ['Can I start with ₹500?', 'What is Nifty 50?', 'Is stock market safe?']
   },
   {
     id: 'apps-demat',
     keywords: ['demat', 'trading account', 'groww', 'zerodha', 'angel', 'broker', 'app', 'kyc', 'which app', 'best app'],
-    question: 'What is a Demat Account and which app should I use to start?',
-    simpleExplanation: `Think of a Demat account like a **digital inbox for your investments**! 📬
+    question: 'What is a Demat Account and which platform should I use to begin?',
+    simpleExplanation: `A Demat account functions as a **secure digital depository for financial securities**.
 
-Just like Gmail holds your emails safely, a Demat account holds your share certificates and mutual fund units electronically in a government-backed digital locker (CDSL/NSDL). Even if your app crashes or shuts down, your shares are 100% safe with the Government of India!
+Similar to how a bank account safely holds cash balances, a Demat account holds your equity shares and mutual fund units in electronic format through national depositories (NSDL or CDSL) regulated by SEBI. Even if a broker platform shuts down, your assets remain secure and verifiable under your PAN.
 
-### Top Easy-to-Use Beginner Apps:
-- **Groww:** Super clean, beginner-friendly UI with zero account maintenance fees.
-- **Zerodha:** Most popular, super reliable, used by millions.
+### Established Beginner-Friendly Direct Platforms:
+- **Groww:** Modern, accessible user interface with zero account maintenance charges on direct mutual funds.
+- **Zerodha:** The largest direct discount broker in India, known for robust infrastructure and transparent execution.
 
-All you need is your PAN card, Aadhaar number (for phone OTP), and 10 minutes to complete setup!`,
-    detailedExplanation: `**Demat & Investment Platform Breakdown:**
+Account setup requires only your PAN card, Aadhaar-linked mobile verification for e-KYC, and 10 minutes.`,
+    detailedExplanation: `**Depository Architecture and Broker Comparison:**
 
-### How Custody Works (Safety Assurance):
-Your investments are **not held by the broker app**. They are stored securely with central depositories (NSDL or CDSL) regulated directly by SEBI under your PAN. The app is merely a user interface.
+### Custody & Investor Protection:
+Investor securities are **not held on the broker balance sheet**. Underlying assets reside directly with central depositories (NSDL or CDSL) linked to your PAN under strict SEBI oversight. The broker app acts strictly as an execution interface.
 
-### Popular SEBI-Registered Direct Platforms:
-1. **Groww:** Best for absolute beginners. Zero AMC (Account Maintenance Charges), direct mutual funds, clean interface.
-2. **Zerodha (Coin & Kite):** Highly trusted, robust charts and tools, direct mutual funds via Zerodha Coin.
-3. **Kuvera:** Focused on 100% free direct mutual funds and goal planning.
+### Regulated Direct Platforms:
+1. **Groww:** Highly suitable for first-time earners; streamlined direct mutual fund workflow and zero AMC.
+2. **Zerodha (Coin & Kite):** Institutional-grade execution platform; direct mutual fund investing via Coin with integrated reporting.
+3. **Kuvera:** Dedicated direct mutual fund and goal planning platform.
 
-### Documents Needed for Setup:
-- PAN Card
-- Aadhaar Card (linked to mobile phone for instant OTP)
-- Bank Account Details (IFSC & account number for auto-SIP setup)`,
+### Standard Documentation Requirements:
+- Permanent Account Number (PAN)
+- Aadhaar card (with SMS OTP facility for digital e-KYC signature)
+- Bank account verification (IFSC and cancelled cheque/bank statement for SIP mandate)`,
     followUps: ['How to start with ₹500?', 'Direct vs Regular Funds', 'How are investments taxed?']
   },
   {
     id: 'taxation',
     keywords: ['tax', 'taxes', 'ltcg', 'stcg', '80c', 'tax saving', 'government tax', 'tax on mutual fund'],
-    question: 'How are stock and mutual fund profits taxed in India?',
-    simpleExplanation: `Here is the simplest way to remember tax rules:
+    question: 'How are capital gains on equity mutual funds taxed in India?',
+    simpleExplanation: `Equity mutual fund taxation depends on your investment holding duration:
 
-The government **rewards patience** and **taxes quick flips**! ⏳
+- **Long-Term Capital Gains (Holding period > 12 Months):**
+  - Your first **₹1.25 Lakh of profit across a financial year is completely tax-exempt**.
+  - Gains exceeding ₹1.25 Lakh are taxed at **12.5%**.
+- **Short-Term Capital Gains (Holding period < 12 Months):**
+  - Gains realized before 12 months face a flat **20%** tax rate.
 
-- **Long-Term Profit (holding over 1 year):**
-  - Your first **₹1.25 Lakh of profit every year is 100% TAX-FREE!**
-  - Any profit above ₹1.25 Lakh is taxed at just 12.5%.
-- **Short-Term Profit (selling before 1 year):**
-  - Taxed at a flat 20% on gains.
+Investors holding diversified equity index funds over multi-year horizons benefit from low effective tax friction and annual exemption thresholds.`,
+    detailedExplanation: `**Statutory Equity Taxation Structure (Indian Capital Markets):**
 
-So if you invest for the long run, you pay very little to zero tax on small profits!`,
-    detailedExplanation: `**Current Capital Gains Tax Breakdown (India Equity Funds):**
+### 1. Long-Term Capital Gains (LTCG - Equity Holding > 12 Months):
+- **Annual Statutory Exemption:** Cumulative capital gains up to **₹1.25 Lakh per fiscal year are 100% exempt**.
+- **Above Exemption:** Incremental gains above ₹1.25 Lakh are subject to a **12.5%** flat tax rate.
 
-### 1. Long Term Capital Gains (LTCG - Holding > 12 Months):
-- **Tax-Free Threshold:** Profit up to **₹1.25 Lakh per financial year is 100% EXEMPT** from tax.
-- **Above Exemption:** Profit exceeding ₹1.25 Lakh is taxed at **12.5%**.
+### 2. Short-Term Capital Gains (STCG - Equity Holding < 12 Months):
+- Net short-term profits are taxed at **20%**.
 
-### 2. Short Term Capital Gains (STCG - Holding < 12 Months):
-- Profits are taxed at a flat **20%**.
-
-### 3. Practical Tip for Beginners:
-If you stay invested in a Nifty 50 Index Fund for 3–5+ years, you won\'t pay a single rupee in tax until you redeem your units, and your first ₹1.25L of annual gain remains tax-free!`,
+### 3. Strategic Tax Efficiency:
+Tax liability is incurred strictly upon redemption (realization). Unredeemed portfolio appreciation compounds untaxed within the fund structure indefinitely.`,
     followUps: ['Can I withdraw anytime?', 'When to sell investments?', 'SIP vs Lumpsum']
   },
   {
     id: 'sip-vs-lumpsum',
     keywords: ['sip vs lumpsum', 'lumpsum', 'one time', 'timing', 'all at once', 'monthly or one time'],
-    question: 'Should I invest all my money at once (Lumpsum) or do a monthly SIP?',
-    simpleExplanation: `Think about watering a plant 🌻
+    question: 'Is it preferable to deploy capital via a monthly SIP or a single lump-sum deposit?',
+    simpleExplanation: `For regular earners, **a monthly SIP is generally preferable to lump-sum timing**.
 
-Would you dump 20 buckets of water on a small plant in one day, or give it **1 cup of water every morning**? 
-
-Giving it 1 cup every morning keeps it healthy and growing smoothly!
-
-- **Monthly SIP is best for 95% of people:** It automatically invests a small piece of your salary every month. You don't have to stress or guess whether the market is high or low today.
-- **Lumpsum (One-Time):** Only do this if you get a big bonus or gift money, and even then, splitting it over 3 to 6 months is usually safer!`,
-    detailedExplanation: `**SIP vs. Lumpsum Comparison:**
+- **Systematic Automation:** Matches investment contributions directly with monthly income cycles.
+- **Rupee-Cost Averaging:** Removes the pressure to predict market peaks or valleys by mechanically buying across market conditions.
+- **Lump-Sum Deployments:** If deploying an unexpected bonus or windfall, staggered deployment across 3 to 6 months (or via a Systematic Transfer Plan) mitigates the risk of entering at a short-term market high.`,
+    detailedExplanation: `**Comparative Analysis: SIP vs Lump-Sum Deployment:**
 
 ### Systematic Investment Plan (SIP):
-- **Stress-Free Automation:** Builds a monthly discipline right after payday.
-- **Rupee-Cost Averaging:** Automatically buys more fund units when prices drop and fewer when prices rise.
-- **Ideal for Salaried Earners:** Aligns perfectly with monthly income.
+- **Removes Market Timing Risk:** Eliminates behavioral hesitation and purchase timing anxiety.
+- **Rupee-Cost Averaging:** Automatically accumulates higher units during equity contractions and fewer during expansions.
+- **Cash-Flow Alignment:** Parallels recurring monthly payroll cycles.
 
-### Lumpsum (One-time Investment):
-- **When it makes sense:** When you receive a bonus, tax refund, or inheritance.
-- **Smart Way to Deploy Lumpsum:** Put the amount in a Liquid Fund first and auto-transfer a fixed portion into an Index Fund every month (Systematic Transfer Plan / STP) to avoid buying at a market peak.`,
+### Lump-Sum Allocation:
+- **Optimal Conditions:** Suitable when deploying substantial windfalls or restructuring existing fixed deposits.
+- **Staggered Execution:** To hedge against immediate equity drawdown post-investment, park capital in a liquid debt fund and execute a weekly/monthly Systematic Transfer Plan (STP) into target equity index funds over 6 months.`,
     followUps: ['Can I start with ₹500?', 'What happens if market drops?', 'How to start investing?']
   },
   {
     id: 'withdrawal-liquidity',
     keywords: ['withdraw', 'withdrawal', 'lock in', 'liquidate', 'get my money back', 'emergency money', 'exit', 'anytime'],
-    question: 'Can I withdraw my invested money anytime if I urgently need cash?',
-    simpleExplanation: `**Yes! Open-ended mutual funds like Nifty 50 Index Funds have NO lock-in period.** 🔓
+    question: 'Can I liquidate invested capital at any time if urgent cash is required?',
+    simpleExplanation: `**Yes. Open-ended mutual funds (including standard Nifty 50 Index Funds) carry no mandatory lock-in period.**
 
-- **Withdraw Anytime:** You can click "Redeem" on apps like Groww or Zerodha whenever you want, and your money hits your bank account in 2 to 3 working days.
-- **No Penalty after initial days:** Most index funds have zero exit fees if you hold for more than 7 days.
-- **Exception (ELSS Tax Saving Funds):** ELSS funds have a mandatory 3-year lock-in period because they give you Section 80C tax benefits. Avoid ELSS if you might need the money soon!`,
-    detailedExplanation: `**Liquidity & Redemptions Explained:**
+- **Redeem on Demand:** You can submit a redemption order on your broker interface at any time; proceeds typically credit your bank account within T+2 business days.
+- **Low Exit Friction:** Most broad index funds charge 0% exit load if units have been held for more than 7 to 15 days.
+- **Distinction (ELSS Tax Funds):** ELSS equity mutual funds carry a statutory **3-year lock-in** in exchange for Section 80C tax deductions. Avoid ELSS for funds you may require in the near term.`,
+    detailedExplanation: `**Liquidity Parameters and Settlement Architecture:**
 
-### 1. Open-Ended Index & Equity Funds:
-- **Flexibility:** You can sell your units at any time.
-- **Payout Timeline:** Standard settlement is T+2 working days (money credited directly to your registered bank account).
-- **Exit Load:** Most index funds have 0% exit load if held for more than 7 days.
+### 1. Open-Ended Index and Diversified Equity Funds:
+- **Redemption Freedom:** Unrestricted redemption facility on any standard trading day.
+- **Settlement Timeline:** Equity funds settle on standard **T+2 business days** directly to your registered bank account via NEFT/RTGS.
+- **Exit Loads:** Typically 0% after a nominal 7 to 15-day minimum threshold.
 
-### 2. Locked Funds to Watch Out For:
-- **ELSS (Tax Saving Mutual Funds):** Mandatory **3-year lock-in**.
-- **PPF / Tax-Saving FDs:** 5 to 15 year commitments.
+### 2. Instruments with Statutory Lock-Ins:
+- **ELSS (Tax Saving Equity Funds):** Statutory **3-year mandatory lock-in**.
+- **PPF / Fixed Tenures:** 5 to 15-year statutory maturity schedules.
 
-**Best Practice:** Always maintain 2–3 months of emergency cash in your savings bank account so you don't have to sell long-term investments for short-term needs!`,
+**Best Practice:** Maintain an independent 3-month emergency liquid buffer so core investments are never liquidated prematurely.`,
     followUps: ['What is an Emergency Fund?', 'How are profits taxed?', 'When to sell investments?']
   },
   {
     id: 'missed-sip',
     keywords: ['miss sip', 'no balance', 'bank balance low', 'insufficient funds', 'penalty', 'skip sip', 'stop sip'],
-    question: 'What happens if I don\'t have enough money in my bank account on SIP auto-debit day?',
-    simpleExplanation: `Don't panic! **You will NOT be jailed or heavily penalized.** 🚫
+    question: 'What occurs if an account has insufficient balance on the scheduled SIP auto-debit date?',
+    simpleExplanation: `Skipping an SIP does not incur penal consequences or affect your credit profile.
 
-- **The Mutual Fund does NOT fine you:** The mutual fund company simply skips that month\'s investment.
-- **Bank Bounce Charges:** Your bank might charge a small auto-debit bounce fee (usually ₹150 – ₹300) for insufficient balance.
-- **You can pause anytime:** In apps like Groww or Zerodha, you can pause or modify your SIP date for FREE 2-3 days before the auto-debit date with a single click!`,
-    detailedExplanation: `**What Really Happens When an SIP Fails:**
+- **Fund Houses Do Not Fine You:** The asset management company simply skips that single monthly transaction.
+- **Bank NACH Charges:** Your bank may charge an auto-debit failure fee (typically ₹100 – ₹250) for insufficient balance on the scheduled date.
+- **Easy Pausing:** If anticipating tight cash flow, you can pause or postpone your SIP date directly in your broker app with zero charge 2 to 3 days prior to the debit date.`,
+    detailedExplanation: `**Regulatory & Operational Realities of a Skipped SIP:**
 
-1. **No Negative Credit Impact:** An SIP is an investment instruction, NOT a debt payment. Skipping an SIP does not harm your CIBIL credit score.
-2. **Mutual Fund Side:** The fund house cancels that month\'s transaction with zero penalty.
-3. **Bank Side:** Some banks charge an NACH bounce fee (~₹150–₹250) if auto-debit fails due to low balance.
-4. **How to Avoid Fees:** If you know cash will be tight this month, open your app 3 days before the debit date and tap **"Pause SIP"**. You can resume it next month for free!`,
+1. **Zero Impact on Credit Rating:** An SIP represents an investment mandate, not a loan obligation. A failed debit has zero bearing on your CIBIL score.
+2. **Mutual Fund House Action:** The fund house cancels the scheduled transaction without penalizing the investor.
+3. **Banking Mandate Charges:** Banking partners may levy an NACH bounce fee (~₹150–₹250) for unsuccessful auto-debit requests.
+4. **Preventive Action:** If cash flow is restricted in a given month, navigate to your platform 72 hours prior to debit date and select **"Pause SIP"** to avoid bank charges.`,
     followUps: ['Can I change SIP amount?', 'Can I start with ₹500?', 'Which app to use?']
   }
 ];
